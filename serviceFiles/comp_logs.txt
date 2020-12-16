@@ -1,0 +1,11 @@
+---> find func: fibb
+=====>Find new Argument variable: n
+---> find func: zaglaveeye
+===
+NameTable[2]: 
+	Function: fibb
+		Argument: n
+
+	Function: zaglaveeye
+		(zero amount arguments)
+

@@ -1,0 +1,126 @@
+
+
+const String TOKENS[]
+{    
+    {"==", 2, 2},
+    // {"ravno", 5, 5},
+
+    {"<=", 2, 2},
+    // {"men'shee_eelee_ravno", 20, 20},
+
+    {">=", 2, 2},
+    // {"bol'she_eelee_ravno", 19, 19},
+    
+    {"<", 1, 1},
+    {">", 1, 1},
+    {"+", 1, 1},
+    {"-", 1, 1},
+    {"*", 1, 1},
+    {"/", 1, 1},
+
+    {",", 1, 1},
+    // {";", 1, 1},
+    {"tchk", 4, 4},
+    
+    // {"{", 1, 1},
+    {"__/", 3, 3},
+    
+    // {"}", 1, 1},
+    {"|", 1, 1},
+
+    {"(", 1, 1},
+    {")", 1, 1},
+
+    // {"declalator", 10, 10},
+    {"obbyaveety", 10, 10},
+    // {"=", 1, 1},
+    {"preesvoytee", 11, 11},
+
+    // {"if", 2, 2},
+    {"yeslee", 6, 6},
+    // {"else", 4, 4},
+    {"eenachee", 8, 8},
+
+    // {"while", 5, 5},
+    {"pokoodah", 8, 8},
+    
+    // {"return", 6, 6},
+    {"verneety", 8, 8},
+
+    // {"print", 5, 5},
+    // {"scan", 4, 4},
+
+};
+
+
+obbyaveety Solve(a, b, c)
+__/
+    yeslee (a == 0)
+    __/
+        Linear(b, c) tchk
+    |
+    eenachee
+    __/
+        Square(a, b, c) tchk
+    |
+|
+
+
+obbyaveety Linear(a, b)
+__/
+    yeslee (a == 0)
+    __/
+        yeslee (b == 0)
+        __/
+            raspechatayty(8) tchk
+        |
+        eenachee
+        __/
+            raspechatayty(0) tchk
+        |
+    |
+    eenachee
+    __/
+        raspechatayty(1) tchk
+        raspechatayty(-1 * b / a) tchk
+    |
+|
+
+obbyaveety Square(a, b, c)
+__/
+    d preesvoytee b * b - 4 * a * c tchk
+    yeslee (d == 0)
+    __/
+        raspechatayty(1) tchk
+        raspechatayty((-1 * b) / (2 * a)) tchk
+    |
+    eenachee
+    __/
+        yeslee (d > 0) 
+        __/
+            raspechatayty(2) tchk
+            root preesvoytee koreyn(d) tchk
+            raspechatayty(root) tchk
+            raspechatayty((-1 * b - root) / (2 * a)) tchk
+            raspechatayty((-1 * b + root) / (2 * a)) tchk
+        |
+        eenachee
+        __/
+            raspechatayty(0) tchk
+        |
+    |
+|
+
+obbyaveety zaglaveeye()
+__/
+
+    a preesvoytee vvod() tchk
+    b preesvoytee vvod() tchk
+    c preesvoytee vvod() tchk
+    Solve(a, b, c) tchk
+|
+
+
+const char* PRINT = "raspechatayty";
+const char* INPUT = "vvod";
+const char* SQRT = "koreyn";

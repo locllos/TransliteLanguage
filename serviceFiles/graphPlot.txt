@@ -1,0 +1,84 @@
+digraph G{
+node [shape="record", style="solid", color="blue"];
+"001BDC08":sw->"001BDAC8"
+"001BDAC8":se->"001BDC58"
+"001BDC58":sw->"001BDB40"
+"001BDB40":sw->"001BDD98"
+"001BDD98":sw->"001BDAA0"
+"001BDAA0":sw->"001BDC30"
+"001BDC30" [style="filled", fillcolor="seagreen1", label="{raspechatayty}"]
+ "001BDAA0":se->"001BDA78"
+"001BDA78":sw->"001BDCF8"
+"001BDCF8":sw->"001BDD70"
+"001BDD70" [style="filled", fillcolor="seagreen1", label="{fibb}"]
+ "001BDCF8":se->"001BDA50"
+"001BDA50":sw->"001BDC80"
+"001BDC80":sw->"001BDB90"
+"001BDB90" [style="filled", fillcolor="seagreen1", label="{vvod}"]
+ "001BDC80" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "001BDA50" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "001BDCF8" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "001BDA78" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "001BDAA0" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "001BDD98" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "001BDB40" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "001BDC58" [style="filled", fillcolor="seagreen1", label="{zaglaveeye}"]
+ "001BDAC8" [style="filled", fillcolor="skyblue1", label="{def}"]
+ "001BDC08":se->"001B26E8"
+"001B26E8":sw->"001BDCD0"
+"001BDCD0":sw->"001B28A0"
+"001B28A0":sw->"001B2878"
+"001B2878":sw->"001B2788"
+"001B2788":sw->"001B2738"
+"001B2738" [style="filled", fillcolor="seagreen1", label="{n}"]
+ "001B2788":se->"001B2760"
+"001B2760" [style="filled", fillcolor="lightpink", label="{3}"]
+ "001B2788" [style="filled", fillcolor="blue", label="{\>}"]
+ "001B2878":se->"001B2850"
+"001B2850":sw->"001B2828"
+"001B2828":sw->"001B2800"
+"001B2800":sw->"001B27D8"
+"001B27D8":se->"001B27B0"
+"001B27B0" [style="filled", fillcolor="lightpink", label="{1}"]
+ "001B27D8" [style="filled", fillcolor="skyblue1", label="{ret}"]
+ "001B2800" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "001B2828" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "001B2850" [style="filled", fillcolor="skyblue1", label="{if/else}"]
+ "001B2878" [style="filled", fillcolor="skyblue1", label="{if}"]
+ "001B28A0":se->"001BDBB8"
+"001BDBB8":sw->"001BDAF0"
+"001BDAF0":se->"001BDB18"
+"001BDB18":sw->"001B04B0"
+"001B04B0":sw->"001B28C8"
+"001B28C8" [style="filled", fillcolor="seagreen1", label="{fibb}"]
+ "001B04B0":se->"001BAA80"
+"001BAA80":sw->"001BAA58"
+"001BAA58":sw->"001B28F0"
+"001B28F0" [style="filled", fillcolor="seagreen1", label="{n}"]
+ "001BAA58":se->"001BAA30"
+"001BAA30" [style="filled", fillcolor="lightpink", label="{1}"]
+ "001BAA58" [style="filled", fillcolor="blue", label="{\*}"]
+ "001BAA80" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "001B04B0" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "001BDB18":se->"001BDA28"
+"001BDA28":sw->"001BDD20"
+"001BDD20" [style="filled", fillcolor="seagreen1", label="{fibb}"]
+ "001BDA28":se->"001BDA00"
+"001BDA00":sw->"001BDD48"
+"001BDD48":sw->"001BDBE0"
+"001BDBE0" [style="filled", fillcolor="seagreen1", label="{n}"]
+ "001BDD48":se->"001BDCA8"
+"001BDCA8" [style="filled", fillcolor="lightpink", label="{2}"]
+ "001BDD48" [style="filled", fillcolor="blue", label="{\*}"]
+ "001BDA00" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "001BDA28" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "001BDB18" [style="filled", fillcolor="blue", label="{\-}"]
+ "001BDAF0" [style="filled", fillcolor="skyblue1", label="{ret}"]
+ "001BDBB8" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "001B28A0" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "001BDCD0" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "001B26E8":se->"001B2710"
+"001B2710" [style="filled", fillcolor="seagreen1", label="{n}"]
+ "001B26E8" [style="filled", fillcolor="seagreen1", label="{fibb}"]
+ "001BDC08" [style="filled", fillcolor="skyblue1", label="{def}"]
+ }

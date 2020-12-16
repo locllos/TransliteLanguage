@@ -1,0 +1,12 @@
+obbyaveety zaglaveeye()
+__/
+    a preesvoytee vvod() tchk
+    result preesvoytee 1 tchk
+
+    pokoodah (a > 1)
+    __/
+        result preesvoytee result * a tchk
+        a preesvoytee a - 1 tchk
+    |
+    raspechatayty(result) tchk
+|
