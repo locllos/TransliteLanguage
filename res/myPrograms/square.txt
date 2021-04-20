@@ -1,0 +1,65 @@
+obbyaveety opredeleeDvaEeleeOdeenChlen(A, B, C)
+__/
+    yeslee (A == 0)
+    __/
+        poshcheetayOdnoChlen(B, C) tchk
+    |
+    eenachee
+    __/
+        poshcheetayDvaChlen(A, B, C) tchk
+    |
+|
+
+obbyaveety poshcheetayOdnoChlen(A, B)
+__/
+    yeslee (A == 0)
+    __/
+        yeslee (B == 0)
+        __/
+            raspechatayty(8) tchk
+        |
+        eenachee
+        __/
+            raspechatayty(0) tchk
+        |
+    |
+    eenachee
+    __/
+        raspechatayty(1) tchk
+        raspechatayty(-1 * B / A) tchk
+    |
+|
+
+obbyaveety poshcheetayDvaChlen(A, B, C)
+__/
+    Diskreemenat preesvoytee B * B - 4 * A * C tchk
+    yeslee (Diskreemenat == 0)
+    __/
+        raspechatayty(1) tchk
+        raspechatayty((-1 * B) / (2 * A)) tchk
+    |
+    eenachee
+    __/
+        yeslee (Diskreemenat > 0) 
+        __/
+            raspechatayty(2) tchk
+            koreyn_ot_Diskreemenatah preesvoytee koreyn(Diskreemenat) tchk
+            raspechatayty(koreyn_ot_Diskreemenatah) tchk
+            raspechatayty((-1 * B - koreyn_ot_Diskreemenatah) / (2 * A)) tchk
+            raspechatayty((-1 * B + koreyn_ot_Diskreemenatah) / (2 * A)) tchk
+        |
+        eenachee
+        __/
+            raspechatayty(0) tchk
+        |
+    |
+|
+
+obbyaveety zaglaveeye()
+__/
+
+    A preesvoytee vvod() tchk
+    B preesvoytee vvod() tchk
+    C preesvoytee vvod() tchk
+    opredeleeDvaEeleeOdeenChlen(A, B, C) tchk
+|

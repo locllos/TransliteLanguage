@@ -1,0 +1,72 @@
+digraph G{
+node [shape="record", style="solid", color="blue"];
+"0x555555570450":se->"0x55555556ebc0"
+"0x55555556ebc0":sw->"0x555555570410"
+"0x555555570410":sw->"0x55555556fd10"
+"0x55555556fd10":sw->"0x55555556fcd0"
+"0x55555556fcd0":sw->"0x55555556fc10"
+"0x55555556fc10" [style="filled", fillcolor="seagreen1", label="{a}"]
+ "0x55555556fcd0":se->"0x55555556fc90"
+"0x55555556fc90":sw->"0x55555556fc50"
+"0x55555556fc50" [style="filled", fillcolor="seagreen1", label="{vvod}"]
+ "0x55555556fc90" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x55555556fcd0" [style="filled", fillcolor="skyblue1", label="{assign}"]
+ "0x55555556fd10":se->"0x55555556fe10"
+"0x55555556fe10":sw->"0x55555556fdd0"
+"0x55555556fdd0":sw->"0x55555556fd50"
+"0x55555556fd50" [style="filled", fillcolor="seagreen1", label="{result}"]
+ "0x55555556fdd0":se->"0x55555556fd90"
+"0x55555556fd90" [style="filled", fillcolor="lightpink", label="{1}"]
+ "0x55555556fdd0" [style="filled", fillcolor="skyblue1", label="{assign}"]
+ "0x55555556fe10":se->"0x555555570290"
+"0x555555570290":sw->"0x555555570250"
+"0x555555570250":sw->"0x55555556fed0"
+"0x55555556fed0":sw->"0x55555556fe50"
+"0x55555556fe50" [style="filled", fillcolor="seagreen1", label="{a}"]
+ "0x55555556fed0":se->"0x55555556fe90"
+"0x55555556fe90" [style="filled", fillcolor="lightpink", label="{1}"]
+ "0x55555556fed0" [style="filled", fillcolor="blue", label="{\+}"]
+ "0x555555570250":se->"0x555555570210"
+"0x555555570210":sw->"0x555555570050"
+"0x555555570050":sw->"0x555555570010"
+"0x555555570010":sw->"0x55555556ff10"
+"0x55555556ff10" [style="filled", fillcolor="seagreen1", label="{result}"]
+ "0x555555570010":se->"0x55555556ffd0"
+"0x55555556ffd0":sw->"0x55555556ff50"
+"0x55555556ff50" [style="filled", fillcolor="seagreen1", label="{result}"]
+ "0x55555556ffd0":se->"0x55555556ff90"
+"0x55555556ff90" [style="filled", fillcolor="seagreen1", label="{a}"]
+ "0x55555556ffd0" [style="filled", fillcolor="blue", label="{\/}"]
+ "0x555555570010" [style="filled", fillcolor="skyblue1", label="{assign}"]
+ "0x555555570050":se->"0x5555555701d0"
+"0x5555555701d0":sw->"0x555555570190"
+"0x555555570190":sw->"0x555555570090"
+"0x555555570090" [style="filled", fillcolor="seagreen1", label="{a}"]
+ "0x555555570190":se->"0x555555570150"
+"0x555555570150":sw->"0x5555555700d0"
+"0x5555555700d0" [style="filled", fillcolor="seagreen1", label="{a}"]
+ "0x555555570150":se->"0x555555570110"
+"0x555555570110" [style="filled", fillcolor="lightpink", label="{1}"]
+ "0x555555570150" [style="filled", fillcolor="blue", label="{\*}"]
+ "0x555555570190" [style="filled", fillcolor="skyblue1", label="{assign}"]
+ "0x5555555701d0" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x555555570050" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x555555570210" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x555555570250" [style="filled", fillcolor="skyblue1", label="{while}"]
+ "0x555555570290":se->"0x5555555703d0"
+"0x5555555703d0":sw->"0x555555570390"
+"0x555555570390":sw->"0x5555555702d0"
+"0x5555555702d0" [style="filled", fillcolor="seagreen1", label="{raspechatayty}"]
+ "0x555555570390":se->"0x555555570350"
+"0x555555570350":sw->"0x555555570310"
+"0x555555570310" [style="filled", fillcolor="seagreen1", label="{result}"]
+ "0x555555570350" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x555555570390" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x5555555703d0" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x555555570290" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x55555556fe10" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x55555556fd10" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x555555570410" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x55555556ebc0" [style="filled", fillcolor="seagreen1", label="{zaglaveeye}"]
+ "0x555555570450" [style="filled", fillcolor="skyblue1", label="{def}"]
+ }

@@ -1,19 +1,31 @@
-NAME = backEnd
-ADD_LIB = frontEnd
-MAIN_DIR = mainFiles
-OBJ_DIR = objectsFiles
-COMPILATOR = g++
-BIN_NAME = translator.exe
+SRC_PATH = /home/locllos/Документы/Projects/TransliteLanguage/src/backend
+ADD_OBJ_PATH = /home/locllos/Документы/Projects/TransliteLanguage/bin/frontend_bin
+OBJ_PATH = /home/locllos/Документы/Projects/TransliteLanguage/bin/backend_bin
+OBJS = $(OBJ_PATH)/compilator.o $(OBJ_PATH)/function.o $(OBJ_PATH)/name_table.o $(OBJ_PATH)/service_funcs.o $(OBJ_PATH)/variable_array.o
+COMPILE = gcc
+FLAGS = -g3
+NAME = translator
 
+main_backend: $(OBJS) $(ADD_OBJ_PATH)/frontend_funcs.o
+	$(COMPILE) $(SRC_PATH)/main_backend.cpp $(OBJS) $(ADD_OBJ_PATH)/frontend_funcs.o -o $(NAME) $(FLAGS)
 
-$(NAME): $(OBJ_DIR)/$(NAME)Main.o $(OBJ_DIR)/$(NAME)Funcs.o 
-	$(COMPILATOR) $(OBJ_DIR)/$(NAME)Main.o $(OBJ_DIR)/$(NAME)Funcs.o  $(OBJ_DIR)/$(ADD_LIB)Funcs.o -o $(BIN_NAME)
+$(SRC_PATH)/frontend_funcs.o:
+	make -f Makefile_frontend $(ADD_OBJ_PATH)/frontend_funcs.o
 
-$(OBJ_DIR)/$(ADD_LIB)Funcs.o: $(MAIN_DIR)/$(ADD_LIB)Files/$(ADD_LIB)Funcs.cpp
-	$(COMPILATOR) -c $(MAIN_DIR)/$(ADD_LIB)Files/$(ADD_LIB)Funcs.cpp -o $(OBJ_DIR)/$(ADD_LIB)Funcs.o
-	
-$(OBJ_DIR)/$(NAME)Main.o: $(MAIN_DIR)/$(NAME)Files/$(NAME)Main.cpp
-	$(COMPILATOR) -c $(MAIN_DIR)/$(NAME)Files/$(NAME)Main.cpp -o $(OBJ_DIR)/$(NAME)Main.o
+$(OBJ_PATH)/compilator.o: 
+	$(COMPILE) $(SRC_PATH)/compilator.cpp -o $(OBJ_PATH)/compilator.o -c $(FLAGS)
 
-$(OBJ_DIR)/$(NAME)Funcs.o: $(MAIN_DIR)/$(NAME)Files/$(NAME)Funcs.cpp
-	$(COMPILATOR) -c $(MAIN_DIR)/$(NAME)Files/$(NAME)Funcs.cpp -o $(OBJ_DIR)/$(NAME)Funcs.o
+$(OBJ_PATH)/function.o: 
+	$(COMPILE) $(SRC_PATH)/function.cpp -o $(OBJ_PATH)/function.o -c $(FLAGS)
+
+$(OBJ_PATH)/name_table.o: 
+	$(COMPILE) $(SRC_PATH)/name_table.cpp -o $(OBJ_PATH)/name_table.o -c $(FLAGS)
+
+$(OBJ_PATH)/service_funcs.o: 
+	$(COMPILE) $(SRC_PATH)/service_funcs.cpp -o $(OBJ_PATH)/service_funcs.o -c $(FLAGS)
+
+$(OBJ_PATH)/variable_array.o:			
+	$(COMPILE) $(SRC_PATH)/variable_array.cpp -o $(OBJ_PATH)/variable_array.o -c $(FLAGS)
+
+clear:
+	rm -r $(OBJ_PATH)/*.o

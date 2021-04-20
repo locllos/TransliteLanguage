@@ -1,0 +1,10 @@
+---> find func: zaglaveeye
+===>Find new Local variable: a
+===>Find new Local variable: result
+===
+NameTable[1]: 
+	Function: zaglaveeye
+		(zero amount arguments)
+
+		Local Variable: a
+		Local Variable: result

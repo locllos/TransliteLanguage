@@ -1,0 +1,478 @@
+---ParamList---
+[
+(nullptr)
+]
+---Function Declaration---
+[
+(NAMING: [zaglaveeye])
+left: nullptr
+right: nullptr
+]
+\__Begin block
+\__Begin statemente
+---Term---
+[
+(nullptr)
+]
+---Simple---
+[
+(nullptr)
+]
+---ArgumentList---
+[
+(nullptr)
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [vvod])
+right: nullptr
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [vvod])
+right: nullptr
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [vvod])
+right: nullptr
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [assign])
+left: (NAMING: [a])
+right: (KEY: [call])
+]
+\__End statemente
+\__Begin statemente
+---NUMBER---
+---Bottom---[
+(NUMBER: [1])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [1])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NUMBER: [1])
+left: nullptr
+right: nullptr
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [assign])
+left: (NAMING: [result])
+right: (NUMBER: [1])
+]
+\__End statemente
+\__Begin statemente
+---NAMING---
+---Bottom---[
+(NAMING: [a])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [a])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NAMING: [a])
+left: nullptr
+right: nullptr
+]
+---NUMBER---
+---Bottom---[
+(NUMBER: [1])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [1])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NUMBER: [1])
+left: nullptr
+right: nullptr
+]
+\__Begin block
+\__Begin statemente
+---NAMING---
+---Bottom---[
+(NAMING: [result])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [result])
+left: nullptr
+right: nullptr
+]
+---NAMING---
+---Bottom---[
+(NAMING: [a])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(MATH: [*])
+
+left: (NAMING: [result])
+right: (NAMING: [a])
+]
+---Simple---
+[
+(MATH: [*])
+
+left: (NAMING: [result])
+right: (NAMING: [a])
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [assign])
+left: (NAMING: [result])
+right: (MATH: [*])
+
+]
+\__End statemente
+\__Begin statemente
+---NAMING---
+---Bottom---[
+(NAMING: [a])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [a])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NAMING: [a])
+left: nullptr
+right: nullptr
+]
+---NUMBER---
+---Bottom---[
+(NUMBER: [1])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [1])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(MATH: [-])
+
+left: (NAMING: [a])
+right: (NUMBER: [1])
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [assign])
+left: (NAMING: [a])
+right: (MATH: [-])
+
+]
+\__End statemente
+\__Begin statemente
+---Term---
+[
+(nullptr)
+]
+---Simple---
+[
+(nullptr)
+]
+---Block---
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+\__End block
+---Loop---
+[
+(KEY: [while])
+left: (MATH: [>])
+
+right: (KEY: [comp])
+]
+\__End statemente
+\__Begin statemente
+---NAMING---
+---Bottom---[
+(NAMING: [result])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [result])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NAMING: [result])
+left: nullptr
+right: nullptr
+]
+---ArgumentList---
+[
+(KEY: [arg])
+left: (NAMING: [result])
+right: nullptr
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+\__End statemente
+\__Begin statemente
+---Term---
+[
+(nullptr)
+]
+---Simple---
+[
+(nullptr)
+]
+---Block---
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+\__End block
+---Definition---
+[
+(NAMING: [zaglaveeye])
+left: (KEY: [comp])
+right: nullptr
+]
+drawing graph...
+[
+(NAMING: [a])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [vvod])
+left: nullptr
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [vvod])
+right: nullptr
+]
+[
+(KEY: [assign])
+left: (NAMING: [a])
+right: (KEY: [call])
+]
+[
+(NAMING: [result])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [1])
+left: nullptr
+right: nullptr
+]
+[
+(KEY: [assign])
+left: (NAMING: [result])
+right: (NUMBER: [1])
+]
+[
+(NAMING: [a])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [1])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [>])
+
+left: (NAMING: [a])
+right: (NUMBER: [1])
+]
+[
+(NAMING: [result])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [result])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [a])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [*])
+
+left: (NAMING: [result])
+right: (NAMING: [a])
+]
+[
+(KEY: [assign])
+left: (NAMING: [result])
+right: (MATH: [*])
+
+]
+[
+(NAMING: [a])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [a])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [1])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [-])
+
+left: (NAMING: [a])
+right: (NUMBER: [1])
+]
+[
+(KEY: [assign])
+left: (NAMING: [a])
+right: (MATH: [-])
+
+]
+[
+(KEY: [stat])
+left: (KEY: [assign])
+right: nullptr
+]
+[
+(KEY: [stat])
+left: (KEY: [assign])
+right: (KEY: [stat])
+]
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+[
+(KEY: [while])
+left: (MATH: [>])
+
+right: (KEY: [comp])
+]
+[
+(NAMING: [raspechatayty])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [result])
+left: nullptr
+right: nullptr
+]
+[
+(KEY: [arg])
+left: (NAMING: [result])
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+[
+(KEY: [stat])
+left: (KEY: [call])
+right: nullptr
+]
+[
+(KEY: [stat])
+left: (KEY: [while])
+right: (KEY: [stat])
+]
+[
+(KEY: [stat])
+left: (KEY: [assign])
+right: (KEY: [stat])
+]
+[
+(KEY: [stat])
+left: (KEY: [assign])
+right: (KEY: [stat])
+]
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+[
+(NAMING: [zaglaveeye])
+left: (KEY: [comp])
+right: nullptr
+]
+[
+(KEY: [def])
+left: nullptr
+right: (NAMING: [zaglaveeye])
+]

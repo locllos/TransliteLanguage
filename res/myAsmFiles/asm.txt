@@ -1,0 +1,106 @@
+;Show must go on!
+PUSH 0
+POP rbx
+PUSH 0
+POP [rbx]
+CALL zaglaveeye
+HLT
+;---Begin compiling Definition: zaglaveeye---
+zaglaveeye: 
+	;---Begin compiling Entry---
+	PUSH rbx
+	PUSH rbx
+	PUSH [rbx]
+	ADD
+	POP rbx
+	POP [rbx + 1]
+	PUSH 4
+	POP [rbx]
+	;---End compiling Entry---
+	;---Begin compiling Arguments---
+	;---End compiling Arguments---
+	;---Begin compiling Block---
+		;---Begin compiling Statement---
+		;---Begin compiling Assign---
+			;---Begin compiling Call---
+				IN
+			POP [rbx + 2]
+			;---End compiling Assign---
+		;---End compiling Statement---
+		;---Begin compiling Statement---
+		;---Begin compiling Assign---
+			;---Begin pushing Number---
+			PUSH 1
+			;---End pushing Number
+			POP [rbx + 3]
+			;---End compiling Assign---
+		;---End compiling Statement---
+		;---Begin compiling Statement---
+		;---Begin compiling While---
+		WHILE_0:
+			;--Begin pushing Variable---
+			PUSH [rbx + 2]
+			;---End pushing Variable---
+			;---Begin pushing Number---
+			PUSH 1
+			;---End pushing Number
+			;---Begin compiling LogicOperators---
+			JA LOGIC_0
+				PUSH 0
+				JMP END_LOGIC_0
+				LOGIC_0: 
+				PUSH 1
+			END_LOGIC_0:
+			;---End compiling LogicOperators---
+		PUSH 0
+		JE WHILE_END_0
+		;---Begin compiling Block---
+			;---Begin compiling Statement---
+			;---Begin compiling Assign---
+				;--Begin pushing Variable---
+				PUSH [rbx + 3]
+				;---End pushing Variable---
+				;--Begin pushing Variable---
+				PUSH [rbx + 2]
+				;---End pushing Variable---
+				MUL
+				POP [rbx + 3]
+				;---End compiling Assign---
+			;---End compiling Statement---
+			;---Begin compiling Statement---
+			;---Begin compiling Assign---
+				;--Begin pushing Variable---
+				PUSH [rbx + 2]
+				;---End pushing Variable---
+				;---Begin pushing Number---
+				PUSH 1
+				;---End pushing Number
+				SUB
+				POP [rbx + 2]
+				;---End compiling Assign---
+			;---End compiling Statement---
+		;---End compiling Block---
+		JMP WHILE_0
+		WHILE_END_0:
+		;---End compiling While---
+		;---End compiling Statement---
+		;---Begin compiling Statement---
+		;---Begin compiling Call---
+			;---Begin compiling Print---
+			;--Begin pushing Variable---
+			PUSH [rbx + 3]
+			;---End pushing Variable---
+			OUT
+			;---End compiling Print---
+		;---End compiling Statement---
+	;---End compiling Block---
+	;---Begin compiling Exit---
+	PUSH [rbx + 1]
+	POP rbx
+	;---End compiling Exit---
+	RET
+;---End compiling Definition---
+
+;Inside my heart is breaking
+;My makeup may be flaking
+;But my smile, still, stays on

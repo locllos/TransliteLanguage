@@ -1,16 +1,17 @@
-NAME = frontEnd
-MAIN_DIR = mainFiles
-OBJ_DIR = objectsFiles
-COMPILATOR = g++
-BIN_NAME = parser.exe
-PARAMS = 
+NAME = frontend
+MAIN_DIR = src
+OBJ_DIR = /home/locllos/Документы/Projects/TransliteLanguage/bin/frontend_bin
+COMPILE = gcc
+BIN_NAME = parser
 
+parser: $(OBJ_DIR)/frontend_main.o $(OBJ_DIR)/frontend_funcs.o 
+	$(COMPILE) -g3 $(OBJ_DIR)/frontend_main.o $(OBJ_DIR)/frontend_funcs.o -o $(BIN_NAME) $(PARAMS)
 
-$(NAME): $(OBJ_DIR)/$(NAME)Main.o $(OBJ_DIR)/$(NAME)Funcs.o 
-	$(COMPILATOR) $(OBJ_DIR)/$(NAME)Main.o $(OBJ_DIR)/$(NAME)Funcs.o  -o $(BIN_NAME) $(PARAMS)
+$(OBJ_DIR)/frontend_main.o: $(MAIN_DIR)/frontend/frontend_main.cpp
+	$(COMPILE) -g3 -c $(MAIN_DIR)/frontend/frontend_main.cpp -o $(OBJ_DIR)/frontend_main.o
 
-$(OBJ_DIR)/$(NAME)Main.o: $(MAIN_DIR)/$(NAME)Files/$(NAME)Main.cpp
-	$(COMPILATOR) -c $(MAIN_DIR)/$(NAME)Files/$(NAME)Main.cpp -o $(OBJ_DIR)/$(NAME)Main.o
+$(OBJ_DIR)/frontend_funcs.o: $(MAIN_DIR)/frontend/frontend_funcs.cpp
+	$(COMPILE) -g3 -c $(MAIN_DIR)/frontend/frontend_funcs.cpp -o $(OBJ_DIR)/frontend_funcs.o
 
-$(OBJ_DIR)/$(NAME)Funcs.o: $(MAIN_DIR)/$(NAME)Files/$(NAME)Funcs.cpp
-	$(COMPILATOR) -c $(MAIN_DIR)/$(NAME)Files/$(NAME)Funcs.cpp -o $(OBJ_DIR)/$(NAME)Funcs.o
+clear:
+	rm -r $(OBJ_DIR)/*
