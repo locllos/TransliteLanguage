@@ -9,7 +9,6 @@
 
 #define COMPILATOR_ASSERT_NULLPTR(node) {if (node == nullptr) logWrite("Miss function: %s\nReason: Node pointer is nullptr", __func__);}
 
-
 //Compilator
 void compileMain(Node* node, const char* filename)
 {   
@@ -18,12 +17,20 @@ void compileMain(Node* node, const char* filename)
     Parser parser = {asm_file, getNameTable(node), 0, 0, 0, 0, 0};
 
     asmFileWrite(&parser, ";Show must go on!");
-    asmFileWrite(&parser, "PUSH 0");
-    asmFileWrite(&parser, "POP rbx");
-    asmFileWrite(&parser, "PUSH 0");
-    asmFileWrite(&parser, "POP [rbx]");
-    asmFileWrite(&parser, "CALL %s", MAIN);
-    asmFileWrite(&parser, "HLT");
+    asmFileWrite(&parser, "global _start");
+    asmFileWrite(&parser, "section .text");
+    // asmFileWrite(parser, "PUSH 0");
+    // asmFileWrite(parser, "POP rbx");
+    // asmFileWrite(parser, "PUSH 0");
+    // asmFileWrite(parser, "POP [rbx]");
+    asmFileWrite(&parser, "_start:");
+
+    ++parser.tab_offset;
+
+    asmFileWrite(&parser, "call %s", MAIN);
+    asmFileWrite(&parser, "mov rax, 3ch");
+    asmFileWrite(&parser, "syscall");
+    // asmFileWrite(parser, "HLT");
 
     Node* def_node = node;
     while (def_node != nullptr &&
@@ -36,7 +43,6 @@ void compileMain(Node* node, const char* filename)
         asmFileWrite(&parser, "");
         
     }
-
     asmFileWrite(&parser, ";Inside my heart is breaking");
     asmFileWrite(&parser, ";My makeup may be flaking");
     asmFileWrite(&parser, ";But my smile, still, stays on");
@@ -60,25 +66,21 @@ void compileDefinition(Node* node, Parser* parser)
     }
     Function* function = getFunction(parser->table, parser->func_id);
 
-    asmFileWrite(parser, ";---Begin compiling Definition: %s---", function->name.string);
-
+    asmFileWrite(parser, ";[Begin compiling Definition: %s]", function->name.string);
     asmFileWrite(parser, "%s: ", function->name.string);
 
     ++parser->tab_offset;
     
     compileEntry(parser);
-
-    compileVariables(node->right, parser);
-
+    // compileVariables(node->right, parser);
     compileBlock(node->left, parser);
-
     compileExit(parser);
 
-    asmFileWrite(parser, "RET");
+    // asmFileWrite(parser, "RET");
 
     --parser->tab_offset;
 
-    asmFileWrite(parser, ";---End compiling Definition---");
+    asmFileWrite(parser, ";[End compiling Definition]");
     
 }
 
@@ -94,8 +96,9 @@ void compileDefinition(Node* node, Parser* parser)
 void compileEntry(Parser* parser)
 {   
     
-    asmFileWrite(parser, ";---Begin compiling Entry---");
-    
+    asmFileWrite(parser, ";[Begin compiling Entry]");
+    //ATTENTION!
+    //THIS EXPLANATION IS OLD
     //Что происходит в памяти:
     // |0|1|2|3|4|5|6|7|8|9|10|
     // |______________________|
@@ -112,25 +115,25 @@ void compileEntry(Parser* parser)
     //| 0 | ---> | 0 | ---> | 5 | ---> |   | ---> |   | ---> |   | ---> |   |
     //| 0 |      | 0 |      | 0 |      | 0 |      |   |      | 6 |      |   |
     //|===|      |===|      |===|      |===|      |===|      |===|      |===|
-    //rbx = 0                         rbx = 5                    
-    asmFileWrite(parser, "PUSH rbx");
-    asmFileWrite(parser, "PUSH rbx");
-    asmFileWrite(parser, "PUSH [rbx]");
-    asmFileWrite(parser, "ADD");
-    asmFileWrite(parser, "POP rbx");
-    asmFileWrite(parser, "POP [rbx + 1]");
-    asmFileWrite(parser, "PUSH %zu", getAmountVariables(getCurrentFunction(parser)) + 2);
-    asmFileWrite(parser, "POP [rbx]");
+    //rbx = 0                         rbx = 5   
+    
+    //NEW VERSION USES CDECL STYLE                 
+    asmFileWrite(parser, "push rbp");
+    asmFileWrite(parser, "mov rbp, rsp");
+    asmFileWrite(parser, "sub rsp, 8 * %zu", getAmountVariables(getCurrentFunction(parser))
+                                             - getCurrentFunction(parser)->amount_args); //<--there is initialization local variables  
 
-    asmFileWrite(parser, ";---End compiling Entry---");
+    asmFileWrite(parser, ";[End compiling Entry]");
     
 }
 
 void compileExit(Parser* parser)
 {   
     
-    asmFileWrite(parser, ";---Begin compiling Exit---");
+    asmFileWrite(parser, ";[Begin compiling Exit]");
 
+    //ATTENTION!
+    //THIS EXPLANATION IS OLD
     //Что происходит в памяти:
     // |0|1|2|3|4|5|6|7|8|9|10|
     // |______________________|
@@ -142,14 +145,18 @@ void compileExit(Parser* parser)
     // |         |
     //after    before
 
-    asmFileWrite(parser, "PUSH [rbx + 1]");
-    asmFileWrite(parser, "POP rbx");
+    //NEW VERSION USES CDECL STYLE                 
+    // asmFileWrite(parser, "PUSH [rbx + 1]");
+    // asmFileWrite(parser, "POP rbx");
 
-    asmFileWrite(parser, ";---End compiling Exit---");    
+    asmFileWrite(parser, "leave"); // it's equal to mov rsp, rbp && pop rbp
+    asmFileWrite(parser, "ret");
+
+    asmFileWrite(parser, ";[End compiling Exit]");    
     
 }
 
-/**
+/** OLD VERSION, WHICH DOESN'T USE
  * @brief (Предполается, что rbx уже сдвинут в область памяти, 
  * где находится функция, для которой инициализируются переменные).
  * Функция инициализирует переменные из стека нашего "процессора" 
@@ -160,7 +167,7 @@ void compileExit(Parser* parser)
 void compileVariables(Node* node, Parser* parser)
 {   
     
-    asmFileWrite(parser, ";---Begin compiling Arguments---");
+    asmFileWrite(parser, ";[Begin compiling Arguments]");
 
     Function* function = getFunction(parser->table, parser->func_id);
     for (size_t i = 0; i < function->amount_args; ++i)
@@ -169,7 +176,7 @@ void compileVariables(Node* node, Parser* parser)
         asmFileWrite(parser, "POP [rbx + %zu]", i + 2);
     }
 
-    asmFileWrite(parser, ";---End compiling Arguments---");
+    asmFileWrite(parser, ";[End compiling Arguments]");
     
 }
 
@@ -180,7 +187,7 @@ void compileBlock(Node* node, Parser* parser)
 
     Node* statement_node = node->left;
 
-    asmFileWrite(parser, ";---Begin compiling Block---");
+    asmFileWrite(parser, ";[Begin compiling Block]");
 
     ++parser->tab_offset;
 
@@ -193,7 +200,7 @@ void compileBlock(Node* node, Parser* parser)
 
     --parser->tab_offset;
 
-    asmFileWrite(parser, ";---End compiling Block---");
+    asmFileWrite(parser, ";[End compiling Block]");
     
 }
 
@@ -202,7 +209,7 @@ void compileStatement(Node* node, Parser* parser)
     
     COMPILATOR_ASSERT_NULLPTR(node);
 
-    asmFileWrite(parser, ";---Begin compiling Statement---");
+    asmFileWrite(parser, ";[Begin compiling Statement]");
 
     switch (node->type)
     {
@@ -234,7 +241,7 @@ void compileStatement(Node* node, Parser* parser)
             break;
     }
 
-    asmFileWrite(parser, ";---End compiling Statement---");
+    asmFileWrite(parser, ";[End compiling Statement]");
     
 }
 
@@ -246,19 +253,23 @@ void compileCondition(Node* node, Parser* parser)
     size_t local_amount_if_else = parser->amount_if_else;
     ++parser->amount_if_else;
 
-    asmFileWrite(parser, ";---Begin compiling Condition---");
+    asmFileWrite(parser, ";[Begin compiling Condition]");
 
     compileExpression(node->left, parser);
 
     Node* if_else_node = node->right;
 
-    asmFileWrite(parser, "PUSH 0");
+    // asmFileWrite(parser, "PUSH 0");
+    asmFileWrite(parser, "xor rbx, rbx");
 
-    asmFileWrite(parser, "JE IF_END_%zu", local_amount_if_else);
+    // asmFileWrite(parser, "JE IF_END_%zu", local_amount_if_else);
+    asmFileWrite(parser, "cmp rax, rbx");
+    asmFileWrite(parser, "je IF_END_%zu", local_amount_if_else);
 
     compileBlock(if_else_node->left, parser);
 
-    asmFileWrite(parser, "JMP IF_ELSE_END_%zu", local_amount_if_else);
+    // asmFileWrite(parser, "JMP IF_ELSE_END_%zu", local_amount_if_else);
+    asmFileWrite(parser, "jmp IF_ELSE_END_%zu", local_amount_if_else);
 
     asmFileWrite(parser, "IF_END_%zu:", local_amount_if_else);
 
@@ -266,9 +277,7 @@ void compileCondition(Node* node, Parser* parser)
 
     asmFileWrite(parser, "IF_ELSE_END_%zu: ", local_amount_if_else);
 
-    asmFileWrite(parser, ";---End compiling Condition---");
-
-    
+    asmFileWrite(parser, ";[End compiling Condition]");
 }
 
 void compileLoop(Node* node, Parser* parser)
@@ -279,7 +288,7 @@ void compileLoop(Node* node, Parser* parser)
     size_t local_amount_loops = parser->amount_loop;
     ++parser->amount_loop;
 
-    asmFileWrite(parser, ";---Begin compiling While---");
+    asmFileWrite(parser, ";[Begin compiling While]");
 
     asmFileWrite(parser, "WHILE_%zu:", local_amount_loops);
 
@@ -289,73 +298,82 @@ void compileLoop(Node* node, Parser* parser)
 
     --parser->tab_offset;
 
-    asmFileWrite(parser, "PUSH 0");
-    asmFileWrite(parser, "JE WHILE_END_%zu", local_amount_loops);
+    // asmFileWrite(parser, "PUSH 0");
+    asmFileWrite(parser, "xor rbx, rbx");
+    asmFileWrite(parser, "cmp rax, rbx");
+    asmFileWrite(parser, "je WHILE_END_%zu", local_amount_loops);
 
     compileBlock(node->right, parser);
 
-    asmFileWrite(parser, "JMP WHILE_%zu", local_amount_loops);
+    asmFileWrite(parser, "jmp WHILE_%zu", local_amount_loops);
 
     asmFileWrite(parser, "WHILE_END_%zu:", local_amount_loops);
 
-    asmFileWrite(parser, ";---End compiling While---");
-
-    
+    asmFileWrite(parser, ";[End compiling While]");
 }
 
 void compileReturn(Node* node, Parser* parser)
 {   
-    
-
     COMPILATOR_ASSERT(node, JUMP_TYPE);
 
-    asmFileWrite(parser, ";---Begin compiling Return---");
+    asmFileWrite(parser, ";[Begin compiling Return]");
 
     compileExpression(node->right, parser);
 
     compileExit(parser);
 
-    asmFileWrite(parser, "RET");
+    // asmFileWrite(parser, "ret");
 
-    asmFileWrite(parser, ";---End compiling Return");
+    asmFileWrite(parser, ";[End compiling Return");
 
     
 }
 
 void compileAssign(Node* node, Parser* parser)
 {   
-    
-
     COMPILATOR_ASSERT(node, ASSIGN_TYPE);
 
-    int var_id = getVariableID(getFunction(parser->table, parser->func_id), 
-                                    &node->left->value.naming);
+    char operation = '-';
+    int service_offset = 1;
+    Function* function = getFunction(parser->table, parser->func_id);
+    int var_id = getVariableID(function, &node->left->value.naming);
+
     if (var_id < 0)
     {
         logWrite("Strange Error: Variable was not found in %s", __func__);
         return;
     }
-    asmFileWrite(parser, ";---Begin compiling Assign---");
+    if (var_id < function->amount_args) 
+    {
+        operation = '+';
+        service_offset = 2;
+    }
+
+    asmFileWrite(parser, ";[Begin compiling Assign]");
 
     ++parser->tab_offset;
 
     compileExpression(node->right, parser);
 
-    asmFileWrite(parser, "POP [rbx + %zu]", var_id + 2);
+    asmFileWrite(parser, "mov [rbp %c %zu], rax", operation, (var_id + service_offset) * gap_size);
 
-    asmFileWrite(parser, ";---End compiling Assign---");
+    asmFileWrite(parser, ";[End compiling Assign]");
 
-    --parser->tab_offset;
-
-    
+    --parser->tab_offset;   
 }
 
+/**
+ * @brief result of expression is put into rax
+ * 
+ * @param node 
+ * @param parser 
+ */
 void compileExpression(Node* node, Parser* parser)
 {
     
     if (node == nullptr) return;
 
-    // asmFileWrite(parser, ";---Begin compiling Expression---");
+    // asmFileWrite(parser, ";[Begin compiling Expression]");
 
     switch (node->type)
     {
@@ -380,7 +398,7 @@ void compileExpression(Node* node, Parser* parser)
             break;
     }
 
-    // asmFileWrite(parser, ";---End compiling Expression---");
+    // asmFileWrite(parser, ";[End compiling Expression]");
     
 }
 
@@ -389,10 +407,13 @@ void compileMath(Node* node, Parser* parser)
     
     COMPILATOR_ASSERT(node, MATH_TYPE);
 
-    // asmFileWrite(parser, ";---Begin compiling Math---");
+    // asmFileWrite(parser, ";[Begin compiling Math]");
 
     compileExpression(node->left, parser);
+    asmFileWrite(parser, "push rax");
     compileExpression(node->right, parser);
+
+    asmFileWrite(parser, "pop rbx");
 
     if ((TokenType)node->value.number >= MATH_EQUAL &&
         (TokenType)node->value.number <= MATH_GREATER)
@@ -404,26 +425,32 @@ void compileMath(Node* node, Parser* parser)
     switch ((TokenType)node->value.number)
     {
         case MATH_PLUS:
-            asmFileWrite(parser, "ADD");
+            asmFileWrite(parser, "add rax, rbx");
             break;
         
         case MATH_MINUS:
-            asmFileWrite(parser, "SUB");
+            asmFileWrite(parser, "xchg rax, rbx");
+            asmFileWrite(parser, "sub rax, rbx");
             break;
 
         case MATH_MUL:
-            asmFileWrite(parser, "MUL");
+            asmFileWrite(parser, "imul rax, rbx");
+            asmFileWrite(parser, "mov rbx, 1000");
+            asmFileWrite(parser, "idiv rbx");
             break;
         
         case MATH_DIV:
-            asmFileWrite(parser, "DIV");
+            asmFileWrite(parser, "xor rdx, rdx");
+            asmFileWrite(parser, "idiv rbx");
+            asmFileWrite(parser, "mov rbx, 1000");
+            asmFileWrite(parser, "imul rax, rbx");
             break;
         
         default:
             logWrite("Math operator: default condition was reached");
             break;
     }
-    // asmFileWrite(parser, ";---End compiling Math---");
+    // asmFileWrite(parser, ";[End compiling Math]");
     
 }
 
@@ -432,7 +459,7 @@ void compileCall(Node* node, Parser* parser)
     
     COMPILATOR_ASSERT(node, CALL_TYPE);
 
-    asmFileWrite(parser, ";---Begin compiling Call---");
+    asmFileWrite(parser, ";[Begin compiling Call]");
 
     ++parser->tab_offset;
 
@@ -468,29 +495,29 @@ void compileCall(Node* node, Parser* parser)
             arg_node->type == ARG_TYPE)
     {   
         compileExpression(arg_node->left, parser);
+        asmFileWrite(parser, "push rax");
         arg_node = arg_node->right;
     }
 
-    asmFileWrite(parser, "CALL %s", function->name.string);
+    asmFileWrite(parser, "call %s", function->name.string);
+    asmFileWrite(parser, "add rsp, %zu", getAmountVariables(function) * gap_size);
 
     --parser->tab_offset;
 
-    asmFileWrite(parser, ";---End compiling Call---");
+    asmFileWrite(parser,";[End compiling Call]");
     
 
 }
 
 void compileNumber(Node* node, Parser* parser)
 {   
-    
     COMPILATOR_ASSERT(node, NUMBER_TYPE);
 
-    asmFileWrite(parser, ";---Begin pushing Number---");
+    asmFileWrite(parser, ";[Begin pushing Number]");
 
-    asmFileWrite(parser, "PUSH %lg", node->value.number);
+    asmFileWrite(parser, "mov rax, %lld", node->value.number);
 
-    asmFileWrite(parser, ";---End pushing Number");
-    
+    asmFileWrite(parser, ";[End pushing Number]");
 }
 
 void compileVariable(Node* node, Parser* parser)
@@ -498,19 +525,27 @@ void compileVariable(Node* node, Parser* parser)
     
     COMPILATOR_ASSERT(node, NAMING_TYPE);
 
-    int var_id = getVariableID(getFunction(parser->table, parser->func_id), 
-                                &node->value.naming);
+    char operation = '-';
+    int service_offset = 1;
+    Function* function = getFunction(parser->table, parser->func_id);
+
+    int var_id = getVariableID(function, &node->value.naming);
     if (var_id < 0)
     {
         printf("Error! Variable \"%s\" is not declared!", 
                 node->left->value.naming.string);
         return;
     }
-    asmFileWrite(parser, ";--Begin pushing Variable---");
+    if (var_id < function->amount_args)
+    {
+        service_offset = 2;
+        operation = '+';
+    }
+    asmFileWrite(parser, ";[Begin pushing Variable: %s]", node->value.naming.string);
 
-    asmFileWrite(parser, "PUSH [rbx + %zu]", var_id + 2);
+    asmFileWrite(parser, "mov rax, [rbp %c %zu]", operation, (var_id + service_offset) * gap_size);
 
-    asmFileWrite(parser, ";---End pushing Variable---");
+    asmFileWrite(parser, ";[End pushing Variable: %s]", node->value.naming.string);
     
 }
 
@@ -519,31 +554,33 @@ void compileLogicOperators(Node* node, Parser* parser)
     
     COMPILATOR_ASSERT_NULLPTR(node);
 
-    asmFileWrite(parser, ";---Begin compiling LogicOperators---");
+    asmFileWrite(parser, ";[Begin compiling LogicOperators]");
 
     size_t amount_logic_operators = parser->amoutnt_logic;
     ++parser->amoutnt_logic;
 
+    asmFileWrite(parser, "cmp rbx, rax");
+
     switch ((TokenType)node->value.number)
     {
         case MATH_EQUAL:
-            asmFileWrite(parser, "JE LOGIC_%zu", amount_logic_operators);
+            asmFileWrite(parser, "je LOGIC_%zu", amount_logic_operators);
             break;
 
         case MATH_EQUAL_LESS:
-            asmFileWrite(parser, "JBE LOGIC_%zu", amount_logic_operators);
+            asmFileWrite(parser, "jbe LOGIC_%zu", amount_logic_operators);
             break;
         
         case MATH_EQUAL_GREATER:
-            asmFileWrite(parser, "JAE LOGIC_%zu", amount_logic_operators);
+            asmFileWrite(parser, "jae LOGIC_%zu", amount_logic_operators);
             break;
 
         case MATH_LESS:
-            asmFileWrite(parser, "JB LOGIC_%zu", amount_logic_operators);
+            asmFileWrite(parser, "jb LOGIC_%zu", amount_logic_operators);
             break;
 
         case MATH_GREATER:
-            asmFileWrite(parser, "JA LOGIC_%zu", amount_logic_operators);
+            asmFileWrite(parser, "ja LOGIC_%zu", amount_logic_operators);
             break;
         
         default:
@@ -552,23 +589,29 @@ void compileLogicOperators(Node* node, Parser* parser)
     }
     ++parser->tab_offset;
 
-    asmFileWrite(parser, "PUSH 0");
-    asmFileWrite(parser, "JMP END_LOGIC_%zu", amount_logic_operators);
+    asmFileWrite(parser, "xor rax, rax");
+    asmFileWrite(parser, "jmp END_LOGIC_%zu", amount_logic_operators);
     asmFileWrite(parser, "LOGIC_%zu: ", amount_logic_operators);
-    asmFileWrite(parser, "PUSH 1");
+    asmFileWrite(parser, "mov rax, 1");
 
     --parser->tab_offset;
 
     asmFileWrite(parser, "END_LOGIC_%zu:", amount_logic_operators);
 
-    asmFileWrite(parser, ";---End compiling LogicOperators---");
+    asmFileWrite(parser, ";[End compiling LogicOperators]");
     
 }
 
+/**
+ * @brief TODO
+ * 
+ * @param node 
+ * @param parser 
+ */
 void compilePrint(Node* node, Parser* parser)
 {   
     
-    asmFileWrite(parser, ";---Begin compiling Print---");
+    asmFileWrite(parser, ";[Begin compiling Print]");
 
     Node* arg_node = node->right;
     size_t variables_counter = 0;
@@ -585,10 +628,16 @@ void compilePrint(Node* node, Parser* parser)
         --variables_counter;
     }
 
-    asmFileWrite(parser, ";---End compiling Print---");
+    asmFileWrite(parser, ";[End compiling Print]");
     
 }
 
+/**
+ * @brief TODO
+ * 
+ * @param node 
+ * @param parser 
+ */
 void compileInput(Node* node, Parser* parser)
 {   
     asmFileWrite(parser, "IN");
@@ -604,6 +653,9 @@ void compileSqrt(Node* node, Parser* parser)
         compileExpression(arg_node->left, parser);
         arg_node = arg_node->right;
     }
-    asmFileWrite(parser, "SQRT");
-    
+    asmFileWrite(parser, "cvtsi2sd xmm0, rax");
+    asmFileWrite(parser, "sqrtsd xmm0, xmm0");
+    asmFileWrite(parser, "cvtsd2si rax, xmm0");
 }
+
+#undef put

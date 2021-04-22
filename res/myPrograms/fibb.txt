@@ -9,5 +9,5 @@ __/
 
 obbyaveety zaglaveeye()
 __/
-    raspechatayty(fibb(vvod())) tchk
+    result preesvoytee fibb(5) tchk
 |

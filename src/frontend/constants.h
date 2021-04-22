@@ -65,8 +65,9 @@ const char* NODE_TYPES[]
 };
 
 const char* MATHS[]
-{
+{   
     "\\==",
+    "\\!=",
     "\\<=",
     "\\>=",
     "\\<", 
@@ -146,3 +147,4 @@ const size_t STRING_BASE_CAPACITY = 8;
 List* ERROR_LIST = nullptr;
 const char* DOT_COMMAND = "dot -Tpng ";
 FILE* logs = fopen("res/serviceFiles/logs.txt", "w");
+const size_t PRECISION = 1000;

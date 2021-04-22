@@ -1,10 +1,15 @@
+---> find func: fact
+=====>Find new Argument variable: n
 ---> find func: zaglaveeye
 ===>Find new Local variable: a
-===>Find new Local variable: result
+===>Find new Local variable: rezult
 ===
-NameTable[1]: 
+NameTable[2]: 
+	Function: fact
+		Argument: n
+
 	Function: zaglaveeye
 		(zero amount arguments)
 
 		Local Variable: a
-		Local Variable: result
+		Local Variable: rezult

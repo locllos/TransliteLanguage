@@ -2,7 +2,7 @@
 
 int main(int argC, const char* argV[])
 {   
-    char* buffer = readFile((argC > 1) ? argV[1] : "res/myPrograms/input.txt");
+    char* buffer = readFile((argC > 1) ? argV[1] : "res/myPrograms/fact.txt");
 
     TokenArray* tokens = getTokens(buffer);
 
@@ -12,7 +12,7 @@ int main(int argC, const char* argV[])
 
     drawGraph(parsed_tree, "res/serviceFiles/Graph.jpg");
 
-    compileMain(parsed_tree, "res/myAsmFiles/asm.txt");
+    compileMain(parsed_tree, "res/myAsmFiles/asm.nasm");
     
     destructTokenArray(tokens);
     free(buffer);    

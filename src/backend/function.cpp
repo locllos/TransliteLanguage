@@ -6,12 +6,16 @@ void constructFunction(Function* function, String* name)
 {
     function->name = *name;
     function->variables = nullptr;
+    function->local_variables = nullptr;
+    function->arguments = nullptr;
 }
 
 void desctructFunction(Function* function)
 {
     destructVariableArray(function->variables);
     function->variables = nullptr;
+    function->local_variables = nullptr;
+    function->arguments = nullptr;
     destructString(&function->name);   
 }
 
@@ -32,7 +36,8 @@ void recordArguments(Function* function, Node* naming_node)
         ++amount_args;
     }
     function->amount_args = amount_args;
-    
+    function->arguments = function->variables->array;
+    function->local_variables = function->variables->array + amount_args;
 }
 
 void recordLocalVariables(Function* function, Node* node)

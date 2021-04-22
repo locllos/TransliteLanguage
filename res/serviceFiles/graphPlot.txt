@@ -1,72 +1,78 @@
 digraph G{
 node [shape="record", style="solid", color="blue"];
-"0x555555570450":se->"0x55555556ebc0"
-"0x55555556ebc0":sw->"0x555555570410"
-"0x555555570410":sw->"0x55555556fd10"
-"0x55555556fd10":sw->"0x55555556fcd0"
-"0x55555556fcd0":sw->"0x55555556fc10"
-"0x55555556fc10" [style="filled", fillcolor="seagreen1", label="{a}"]
- "0x55555556fcd0":se->"0x55555556fc90"
-"0x55555556fc90":sw->"0x55555556fc50"
-"0x55555556fc50" [style="filled", fillcolor="seagreen1", label="{vvod}"]
- "0x55555556fc90" [style="filled", fillcolor="skyblue1", label="{call}"]
- "0x55555556fcd0" [style="filled", fillcolor="skyblue1", label="{assign}"]
- "0x55555556fd10":se->"0x55555556fe10"
-"0x55555556fe10":sw->"0x55555556fdd0"
-"0x55555556fdd0":sw->"0x55555556fd50"
-"0x55555556fd50" [style="filled", fillcolor="seagreen1", label="{result}"]
- "0x55555556fdd0":se->"0x55555556fd90"
-"0x55555556fd90" [style="filled", fillcolor="lightpink", label="{1}"]
- "0x55555556fdd0" [style="filled", fillcolor="skyblue1", label="{assign}"]
- "0x55555556fe10":se->"0x555555570290"
-"0x555555570290":sw->"0x555555570250"
-"0x555555570250":sw->"0x55555556fed0"
-"0x55555556fed0":sw->"0x55555556fe50"
-"0x55555556fe50" [style="filled", fillcolor="seagreen1", label="{a}"]
- "0x55555556fed0":se->"0x55555556fe90"
-"0x55555556fe90" [style="filled", fillcolor="lightpink", label="{1}"]
- "0x55555556fed0" [style="filled", fillcolor="blue", label="{\+}"]
- "0x555555570250":se->"0x555555570210"
-"0x555555570210":sw->"0x555555570050"
-"0x555555570050":sw->"0x555555570010"
-"0x555555570010":sw->"0x55555556ff10"
-"0x55555556ff10" [style="filled", fillcolor="seagreen1", label="{result}"]
- "0x555555570010":se->"0x55555556ffd0"
-"0x55555556ffd0":sw->"0x55555556ff50"
-"0x55555556ff50" [style="filled", fillcolor="seagreen1", label="{result}"]
- "0x55555556ffd0":se->"0x55555556ff90"
-"0x55555556ff90" [style="filled", fillcolor="seagreen1", label="{a}"]
- "0x55555556ffd0" [style="filled", fillcolor="blue", label="{\/}"]
- "0x555555570010" [style="filled", fillcolor="skyblue1", label="{assign}"]
- "0x555555570050":se->"0x5555555701d0"
-"0x5555555701d0":sw->"0x555555570190"
-"0x555555570190":sw->"0x555555570090"
-"0x555555570090" [style="filled", fillcolor="seagreen1", label="{a}"]
- "0x555555570190":se->"0x555555570150"
-"0x555555570150":sw->"0x5555555700d0"
-"0x5555555700d0" [style="filled", fillcolor="seagreen1", label="{a}"]
- "0x555555570150":se->"0x555555570110"
-"0x555555570110" [style="filled", fillcolor="lightpink", label="{1}"]
- "0x555555570150" [style="filled", fillcolor="blue", label="{\*}"]
- "0x555555570190" [style="filled", fillcolor="skyblue1", label="{assign}"]
- "0x5555555701d0" [style="filled", fillcolor="skyblue1", label="{stat}"]
- "0x555555570050" [style="filled", fillcolor="skyblue1", label="{stat}"]
- "0x555555570210" [style="filled", fillcolor="skyblue1", label="{comp}"]
- "0x555555570250" [style="filled", fillcolor="skyblue1", label="{while}"]
- "0x555555570290":se->"0x5555555703d0"
-"0x5555555703d0":sw->"0x555555570390"
-"0x555555570390":sw->"0x5555555702d0"
-"0x5555555702d0" [style="filled", fillcolor="seagreen1", label="{raspechatayty}"]
- "0x555555570390":se->"0x555555570350"
-"0x555555570350":sw->"0x555555570310"
-"0x555555570310" [style="filled", fillcolor="seagreen1", label="{result}"]
- "0x555555570350" [style="filled", fillcolor="skyblue1", label="{arg}"]
- "0x555555570390" [style="filled", fillcolor="skyblue1", label="{call}"]
- "0x5555555703d0" [style="filled", fillcolor="skyblue1", label="{stat}"]
- "0x555555570290" [style="filled", fillcolor="skyblue1", label="{stat}"]
- "0x55555556fe10" [style="filled", fillcolor="skyblue1", label="{stat}"]
- "0x55555556fd10" [style="filled", fillcolor="skyblue1", label="{stat}"]
- "0x555555570410" [style="filled", fillcolor="skyblue1", label="{comp}"]
- "0x55555556ebc0" [style="filled", fillcolor="seagreen1", label="{zaglaveeye}"]
- "0x555555570450" [style="filled", fillcolor="skyblue1", label="{def}"]
+"0x562332e5b160":sw->"0x562332e5b4e0"
+"0x562332e5b4e0":se->"0x562332e5b1a0"
+"0x562332e5b1a0":sw->"0x562332e5b4a0"
+"0x562332e5b4a0":sw->"0x562332e5b2a0"
+"0x562332e5b2a0":sw->"0x562332e5b260"
+"0x562332e5b260":sw->"0x562332e5b1e0"
+"0x562332e5b1e0" [style="filled", fillcolor="seagreen1", label="{a}"]
+ "0x562332e5b260":se->"0x562332e5b220"
+"0x562332e5b220" [style="filled", fillcolor="lightpink", label="{6.95278e-310}"]
+ "0x562332e5b260" [style="filled", fillcolor="skyblue1", label="{assign}"]
+ "0x562332e5b2a0":se->"0x562332e5b460"
+"0x562332e5b460":sw->"0x562332e5b420"
+"0x562332e5b420":sw->"0x562332e5b2e0"
+"0x562332e5b2e0" [style="filled", fillcolor="seagreen1", label="{rezult}"]
+ "0x562332e5b420":se->"0x562332e5b3e0"
+"0x562332e5b3e0":sw->"0x562332e5b320"
+"0x562332e5b320" [style="filled", fillcolor="seagreen1", label="{fact}"]
+ "0x562332e5b3e0":se->"0x562332e5b3a0"
+"0x562332e5b3a0":sw->"0x562332e5b360"
+"0x562332e5b360" [style="filled", fillcolor="seagreen1", label="{a}"]
+ "0x562332e5b3a0" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x562332e5b3e0" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x562332e5b420" [style="filled", fillcolor="skyblue1", label="{assign}"]
+ "0x562332e5b460" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x562332e5b2a0" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x562332e5b4a0" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x562332e5b1a0" [style="filled", fillcolor="seagreen1", label="{zaglaveeye}"]
+ "0x562332e5b4e0" [style="filled", fillcolor="skyblue1", label="{def}"]
+ "0x562332e5b160":se->"0x562332e59b90"
+"0x562332e59b90":sw->"0x562332e5b120"
+"0x562332e5b120":sw->"0x562332e5ae60"
+"0x562332e5ae60":sw->"0x562332e5ae20"
+"0x562332e5ae20":sw->"0x562332e5aca0"
+"0x562332e5aca0":sw->"0x562332e5ac20"
+"0x562332e5ac20" [style="filled", fillcolor="seagreen1", label="{n}"]
+ "0x562332e5aca0":se->"0x562332e5ac60"
+"0x562332e5ac60" [style="filled", fillcolor="lightpink", label="{6.95278e-310}"]
+ "0x562332e5aca0" [style="filled", fillcolor="blue", label="{\<}"]
+ "0x562332e5ae20":se->"0x562332e5ade0"
+"0x562332e5ade0":sw->"0x562332e5ada0"
+"0x562332e5ada0":sw->"0x562332e5ad60"
+"0x562332e5ad60":sw->"0x562332e5ad20"
+"0x562332e5ad20":se->"0x562332e5ace0"
+"0x562332e5ace0" [style="filled", fillcolor="lightpink", label="{6.95278e-310}"]
+ "0x562332e5ad20" [style="filled", fillcolor="skyblue1", label="{ret}"]
+ "0x562332e5ad60" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x562332e5ada0" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x562332e5ade0" [style="filled", fillcolor="skyblue1", label="{if/else}"]
+ "0x562332e5ae20" [style="filled", fillcolor="skyblue1", label="{if}"]
+ "0x562332e5ae60":se->"0x562332e5b0e0"
+"0x562332e5b0e0":sw->"0x562332e5b0a0"
+"0x562332e5b0a0":se->"0x562332e5b060"
+"0x562332e5b060":sw->"0x562332e5aea0"
+"0x562332e5aea0" [style="filled", fillcolor="seagreen1", label="{n}"]
+ "0x562332e5b060":se->"0x562332e5b020"
+"0x562332e5b020":sw->"0x562332e5aee0"
+"0x562332e5aee0" [style="filled", fillcolor="seagreen1", label="{fact}"]
+ "0x562332e5b020":se->"0x562332e5afe0"
+"0x562332e5afe0":sw->"0x562332e5afa0"
+"0x562332e5afa0":sw->"0x562332e5af20"
+"0x562332e5af20" [style="filled", fillcolor="seagreen1", label="{n}"]
+ "0x562332e5afa0":se->"0x562332e5af60"
+"0x562332e5af60" [style="filled", fillcolor="lightpink", label="{6.95278e-310}"]
+ "0x562332e5afa0" [style="filled", fillcolor="blue", label="{\-}"]
+ "0x562332e5afe0" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x562332e5b020" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x562332e5b060" [style="filled", fillcolor="blue", label="{\*}"]
+ "0x562332e5b0a0" [style="filled", fillcolor="skyblue1", label="{ret}"]
+ "0x562332e5b0e0" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x562332e5ae60" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x562332e5b120" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x562332e59b90":se->"0x562332e59bd0"
+"0x562332e59bd0" [style="filled", fillcolor="seagreen1", label="{n}"]
+ "0x562332e59b90" [style="filled", fillcolor="seagreen1", label="{fact}"]
+ "0x562332e5b160" [style="filled", fillcolor="skyblue1", label="{def}"]
  }

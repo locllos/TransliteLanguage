@@ -29,8 +29,11 @@ void            recordLocalVariables    (Function* function, Node* node);
 Function*       newFunction             (String* name);
 Function*       getCurrentFunction      (Parser* parser);
 String*         getVariable             (Function* function, size_t idx);
+String*         getArgument             (Function* function, size_t idx);
 int             getVariableID           (Function* function, String* variable);
+int             getArgumentID           (Function* function, String* variable);
 size_t          getAmountVariables      (Function* function);
+size_t          getAmountArguments      (Function* function);
 
 //VariableArray
 void            constructVariableArray  (VariableArray* variables, size_t base_capacity);

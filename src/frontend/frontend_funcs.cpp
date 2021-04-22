@@ -347,7 +347,7 @@ Value createValue(String string)
     return value;
 }
 
-Value createValue(double number)
+Value createValue(long long number)
 {
     dbg;
     Value value = {};
@@ -493,7 +493,6 @@ String getNaming(char* buffer, size_t* pos)
 
 double getNumber(char* string, size_t* pos)
 {   
-    dbg;
     char* begin_number = string + *pos;
     char* end_number = nullptr;
 
@@ -501,11 +500,10 @@ double getNumber(char* string, size_t* pos)
     value = strtod(begin_number, &end_number);
     if (begin_number == end_number)
     {
-        dbg;
         return NAN;
     }
     *pos += end_number - begin_number;
-    dbg;
+
     return value;
 }
 
@@ -544,7 +542,6 @@ void showTokens(TokenArray* tokens)
 
 TokenArray* getTokens(char* buffer)
 {   
-    dbg;
     TokenArray* tokens = newTokenArray(TOKENS_BASE_CAPACITY);
     size_t line = 1;
     String naming = {};
@@ -557,29 +554,23 @@ TokenArray* getTokens(char* buffer)
     while (buffer[pos] != '\0')
     {   
         skipUselessSymbols(buffer, &pos, &line);
-        // printStr(buffer + pos);
+
         if (!isnan(number = getNumber(buffer, &pos)))
         {   
-            // printf("Find number: %lg\n", number);
-            tokenArrayAppend(tokens, NUMBER, line, createValue(number));
+            tokenArrayAppend(tokens, NUMBER, line, createValue((long long int)number * PRECISION));
         }
         else if ((idx = getTokenType(buffer, &pos)) > -1)
         {   
-            // printf("Find operation: %s\n", TOKENS[idx].string);
             tokenArrayAppend(tokens, (TokenType)idx, line, createValue());
         }
         else if ((naming = getNaming(buffer, &pos)).length > 0)
         {   
-            // printf("Find naming: %s\n", naming.string);
             tokenArrayAppend(tokens, NAMING, line, createValue(naming));
         }
         else
         {   
-            // printf("Find nothing. Pass...\n");
             ++pos;
         }
-        dbg;
-        // printf("---\n");
     }
     return tokens;
 }

@@ -74,7 +74,7 @@ struct String
 union Value
 {
     String naming;
-    double number;
+    long long int number;
 };
  
 struct Token

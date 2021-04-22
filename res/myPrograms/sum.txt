@@ -1,0 +1,12 @@
+obbyaveety sum(a, b)
+__/ 
+    result preesvoytee a + b tchk
+    verneety result tchk
+|
+
+obbyaveety zaglaveeye()
+__/
+    a preesvoytee 6 tchk
+    b preesvoytee 10 tchk
+    result preesvoytee sum(a, b) tchk
+|

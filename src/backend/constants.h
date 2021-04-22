@@ -6,6 +6,7 @@ static const char MAIN[] = "zaglaveeye";
 static const char PRINT[] = "raspechatayty";
 static const char INPUT[] = "vvod";
 static const char SQRT[] = "koreyn";
+static const size_t gap_size = 8;
 
 static const String TOKEN[]
 {    

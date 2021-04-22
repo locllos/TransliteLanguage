@@ -9,6 +9,9 @@ struct VariableArray
 struct Function
 {
     String name;
+    String* arguments;
+    String* local_variables;
+    
     VariableArray* variables;
     size_t amount_args;
 };
