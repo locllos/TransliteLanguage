@@ -174,24 +174,34 @@ void initStrtrabSection(Parser* parser, ELF* elf, const char* filename, const ch
     alignCapacityArrayBySize(strtab, DEFAULT_ALIGNMENT);
 }
 
-void initFileEntry(Elf64_Sym* file_entry)
-{
-    file_entry->st_name = 1; //strtab offset is always 1 for file entry
-    file_entry->st_info = ELF64_ST_INFO(STB_LOCAL, STT_NOTYPE);
-    file_entry->st_other = STV_DEFAULT;
-    file_entry->st_shndx = ABS_VALUE;
-    file_entry->st_value = 0x00;
-    file_entry->st_size = 0x00;
+void initFileEntry(Array* symtab)
+{   
+    Elf64_Sym file_entry = {};
+
+    file_entry.st_name = 1; //strtab offset is always 1 for file entry
+    file_entry.st_info = ELF64_ST_INFO(STB_LOCAL, STT_NOTYPE);
+    file_entry.st_other = STV_DEFAULT;
+    file_entry.st_shndx = ABS_VALUE;
+    file_entry.st_value = 0x00;
+    file_entry.st_size = 0x00;
+
+    insertBackArray(symtab, (char*)&file_entry, ENTRY_SIZE);
+
 }
 
-void initTextSectionEntry(Elf64_Sym* text_entry)
-{
-    text_entry->st_name = 0;
-    text_entry->st_info = ELF64_ST_INFO(STB_LOCAL, STT_SECTION);
-    text_entry->st_other = STV_DEFAULT;
-    text_entry->st_shndx = TEXT;
-    text_entry->st_value = 0x00;
-    text_entry->st_size = 0x00;
+void initTextSectionEntry(Array* symtab)
+{   
+    Elf64_Sym text_entry = {};
+
+    text_entry.st_name = 0;
+    text_entry.st_info = ELF64_ST_INFO(STB_LOCAL, STT_SECTION);
+    text_entry.st_other = STV_DEFAULT;
+    text_entry.st_shndx = TEXT;
+    text_entry.st_value = 0x00;
+    text_entry.st_size = 0x00;
+
+    insertBackArray(symtab, (char*)&text_entry, ENTRY_SIZE);
+
 }
 
 void initLocalNames(Parser* parser, ELF* elf, Array* symtab, size_t* symtab_idx)
@@ -239,14 +249,16 @@ void initGlobalNames(Parser* parser, ELF* elf, Array* symtab, size_t* symtab_idx
     }
 }
 
-void initStartFunction(Elf64_Sym* sym_entry, ELF* elf)
+void initStartFunction(Array* symtab, ELF* elf)
 {   
-    *sym_entry = {elf->main_func_strtab_offset, 
-                  ELF64_ST_INFO(STB_GLOBAL, STT_NOTYPE),
-                  STV_DEFAULT,
-                  TEXT, 
-                  0, 
-                  0x00};
+    Elf64_Sym sym_entry = {elf->main_func_strtab_offset, 
+                            ELF64_ST_INFO(STB_GLOBAL, STT_NOTYPE),
+                            STV_DEFAULT,
+                            TEXT, 
+                            0, 
+                            0x00};
+
+    insertBackArray(symtab, (char*)&sym_entry, ENTRY_SIZE);
 }
 
 void initSymtabSection(Parser* parser, ELF* elf)
@@ -256,17 +268,14 @@ void initSymtabSection(Parser* parser, ELF* elf)
 
     insertBackArray(symtab, ZERO_ENTRY, ENTRY_SIZE);
 
-    initFileEntry(&sym_entry);
-    insertBackArray(symtab, (char*)&sym_entry, ENTRY_SIZE);
+    initFileEntry(symtab);
 
-    initTextSectionEntry(&sym_entry);
-    insertBackArray(symtab, (char*)&sym_entry, ENTRY_SIZE);
+    initTextSectionEntry(symtab);
 
     size_t symtab_idx = 3;
     initLocalNames(parser, elf, symtab, &symtab_idx);
 
-    initStartFunction(&sym_entry, elf);
-    insertBackArray(symtab, (char*)&sym_entry, ENTRY_SIZE);
+    initStartFunction(symtab, elf);
     elf->sh_symtab->sh_info = symtab_idx;
 
     ++symtab_idx;
