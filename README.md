@@ -255,6 +255,7 @@ N, M, K, P, Q - натуральные числа.
 
 ## 6. Relatext entry
 ![image](res/img/relatext_entry.png)
+
 (Пфф, всего лишь 3 поля, легко... Нет)
 * r_offset:
 
