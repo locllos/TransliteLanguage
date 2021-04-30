@@ -32,19 +32,19 @@ right: nullptr
 ]
 ---NUMBER---
 ---Bottom---[
-(NUMBER: [6.95278e-310])
+(NUMBER: [6.95336e-310])
 left: nullptr
 right: nullptr
 ]
 ---Term---
 [
-(NUMBER: [6.91382e-310])
+(NUMBER: [6.95335e-310])
 left: nullptr
 right: nullptr
 ]
 ---Simple---
 [
-(NUMBER: [6.91382e-310])
+(NUMBER: [6.95335e-310])
 left: nullptr
 right: nullptr
 ]
@@ -52,19 +52,19 @@ right: nullptr
 \__Begin statemente
 ---NUMBER---
 ---Bottom---[
-(NUMBER: [6.95278e-310])
+(NUMBER: [6.95336e-310])
 left: nullptr
 right: nullptr
 ]
 ---Term---
 [
-(NUMBER: [6.91382e-310])
+(NUMBER: [6.95335e-310])
 left: nullptr
 right: nullptr
 ]
 ---Simple---
 [
-(NUMBER: [6.91382e-310])
+(NUMBER: [6.95335e-310])
 left: nullptr
 right: nullptr
 ]
@@ -132,13 +132,13 @@ right: nullptr
 ]
 ---NUMBER---
 ---Bottom---[
-(NUMBER: [6.95278e-310])
+(NUMBER: [6.95336e-310])
 left: nullptr
 right: nullptr
 ]
 ---Term---
 [
-(NUMBER: [6.91382e-310])
+(NUMBER: [6.95335e-310])
 left: nullptr
 right: nullptr
 ]
@@ -147,7 +147,7 @@ right: nullptr
 (MATH: [-])
 
 left: (NAMING: [n])
-right: (NUMBER: [6.91382e-310])
+right: (NUMBER: [6.95335e-310])
 ]
 ---ArgumentList---
 [
@@ -218,29 +218,41 @@ right: nullptr
 ]
 \__Begin block
 \__Begin statemente
----NUMBER---
+---Term---
+[
+(nullptr)
+]
+---Simple---
+[
+(nullptr)
+]
+---ArgumentList---
+[
+(nullptr)
+]
+---CALL---
 ---Bottom---[
-(NUMBER: [6.95278e-310])
-left: nullptr
+(KEY: [call])
+left: (NAMING: [vvod])
 right: nullptr
 ]
 ---Term---
 [
-(NUMBER: [6.91382e-310])
-left: nullptr
+(KEY: [call])
+left: (NAMING: [vvod])
 right: nullptr
 ]
 ---Simple---
 [
-(NUMBER: [6.91382e-310])
-left: nullptr
+(KEY: [call])
+left: (NAMING: [vvod])
 right: nullptr
 ]
 ---Ret or  Assign or Expr---
 [
 (KEY: [assign])
 left: (NAMING: [a])
-right: (NUMBER: [0])
+right: (KEY: [call])
 ]
 \__End statemente
 \__Begin statemente
@@ -286,11 +298,35 @@ right: (KEY: [arg])
 left: (NAMING: [fact])
 right: (KEY: [arg])
 ]
+---ArgumentList---
+[
+(KEY: [arg])
+left: (KEY: [call])
+right: nullptr
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
 ---Ret or  Assign or Expr---
 [
-(KEY: [assign])
-left: (NAMING: [rezult])
-right: (KEY: [call])
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
 ]
 \__End statemente
 \__Begin statemente
@@ -322,17 +358,22 @@ left: nullptr
 right: nullptr
 ]
 [
-(NUMBER: [0])
+(NAMING: [vvod])
 left: nullptr
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [vvod])
 right: nullptr
 ]
 [
 (KEY: [assign])
 left: (NAMING: [a])
-right: (NUMBER: [6.95278e-310])
+right: (KEY: [call])
 ]
 [
-(NAMING: [rezult])
+(NAMING: [raspechatayty])
 left: nullptr
 right: nullptr
 ]
@@ -357,13 +398,18 @@ left: (NAMING: [fact])
 right: (KEY: [arg])
 ]
 [
-(KEY: [assign])
-left: (NAMING: [rezult])
-right: (KEY: [call])
+(KEY: [arg])
+left: (KEY: [call])
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
 ]
 [
 (KEY: [stat])
-left: (KEY: [assign])
+left: (KEY: [call])
 right: nullptr
 ]
 [
@@ -400,7 +446,7 @@ right: nullptr
 (MATH: [<])
 
 left: (NAMING: [n])
-right: (NUMBER: [6.95278e-310])
+right: (NUMBER: [6.95336e-310])
 ]
 [
 (NUMBER: [0])
@@ -410,7 +456,7 @@ right: nullptr
 [
 (KEY: [ret])
 left: nullptr
-right: (NUMBER: [6.95278e-310])
+right: (NUMBER: [6.95336e-310])
 ]
 [
 (KEY: [stat])
@@ -457,7 +503,7 @@ right: nullptr
 (MATH: [-])
 
 left: (NAMING: [n])
-right: (NUMBER: [6.95278e-310])
+right: (NUMBER: [6.95336e-310])
 ]
 [
 (KEY: [arg])

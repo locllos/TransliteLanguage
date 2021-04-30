@@ -143,8 +143,9 @@ const char MATH_TRANSLATOR[] =
 };
 
 const size_t TOKENS_BASE_CAPACITY = 512;
+const size_t MAX_STRING_LENGTH = 512;
 const size_t STRING_BASE_CAPACITY = 8;
 List* ERROR_LIST = nullptr;
 const char* DOT_COMMAND = "dot -Tpng ";
 FILE* logs = fopen("res/serviceFiles/logs.txt", "w");
-const size_t PRECISION = 1000;
+const size_t PRECISION = 1;

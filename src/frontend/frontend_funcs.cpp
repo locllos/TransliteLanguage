@@ -54,9 +54,9 @@ int approxLength(const char* filename)
 	return buff->st_size;
 }
 
-char* readFile(const char* filename, size_t* buffer_size)
+char* readFile(const char* filename, const char* flag, size_t* buffer_size)
 {
-    FILE* file = fopen(filename, "r");
+    FILE* file = fopen(filename, flag);
 
     assert(file);
     
@@ -71,6 +71,11 @@ char* readFile(const char* filename, size_t* buffer_size)
     if (buffer != nullptr) buffer[apr_size] = '\0';
 
     return buffer;
+}
+
+char* readFile(const char* filename, size_t* buffer_size)
+{
+    return readFile(filename, "r", buffer_size);
 }
 
 void skipUselessSymbols(char* string, size_t* pos, size_t* line)
@@ -374,11 +379,85 @@ void constructString(String* string)
     string->string[0] = '\0';
 }
 
+void constructString(String* string, char* cstring, size_t length)
+{
+    string->length = (length == 0) ? strlen(cstring) : length;
+    string->string = (char*)calloc(string->length + 1, sizeof(char));
+    string->capacity = length + 1;
+
+    memcpy(string->string, cstring, (string->length + 1) * sizeof(char));    
+}
+
+void constructString(String* string, const char* cstring, size_t length)
+{
+    string->length = (length == 0) ? strlen(cstring) : length;
+    string->string = (char*)calloc(string->length + 1, sizeof(char));
+    string->capacity = length + 1;
+
+    memcpy(string->string, cstring, (string->length + 1) * sizeof(char));    
+}
+
+void constructStringVAList(String* string, const char* formatted_cstring, va_list begin)
+{
+    char buffer[MAX_STRING_LENGTH] = {};
+    vsnprintf(buffer, MAX_STRING_LENGTH, formatted_cstring, begin);
+
+    constructString(string, buffer);
+}
+
 String* newString()
 {
     String* string = (String*)calloc(1, sizeof(String));
 
     constructString(string);
+
+    return string;
+}
+
+String* newString(char* cstring, size_t length)
+{
+    String* string = (String*)calloc(1, sizeof(String));
+
+    constructString(string, cstring, length);
+
+    return string;
+}
+
+String* newString(const char* cstring, size_t length)
+{
+    String* string = (String*)calloc(1, sizeof(String));
+
+    constructString(string, cstring, length);
+
+    return string;
+}
+
+String* newStringVAList(const char* formatted_cstring, va_list begin)
+{
+    String* string = (String*)calloc(1, sizeof(String));
+
+    constructStringVAList(string, formatted_cstring, begin);
+
+    return string;
+}
+
+String* newFormattedString(const char* formatted_cstring, ...)
+{
+    va_list begin;
+    va_start(begin, formatted_cstring);    
+
+    String* string = newStringVAList(formatted_cstring, begin);
+
+    va_end(begin);
+
+    return string;
+}
+
+String* newString(String* copy_string)
+{
+    String* string = (String*)calloc(1, sizeof(String));
+
+    constructString(string, copy_string->string, copy_string->length);
 
     return string;
 }
@@ -402,8 +481,19 @@ void stringAppend(String* string, char symbol)
 void destructString(String* string)
 {
     free(string->string);
+
+    string->string = nullptr;
     string->capacity = 0;
     string->length = 0;
+}
+
+String* deleteString(String* string)
+{
+    destructString(string);
+
+    free(string);
+
+    return nullptr;
 }
 
 //TokenArray

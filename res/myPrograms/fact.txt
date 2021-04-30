@@ -9,6 +9,6 @@ __/
 
 obbyaveety zaglaveeye()
 __/
-    a preesvoytee 6 tchk
-    rezult preesvoytee fact(a) tchk
+    a preesvoytee vvod() tchk
+    raspechatayty(fact(a)) tchk
 |

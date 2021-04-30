@@ -76,6 +76,7 @@ void destructNameTable(NameTable* table)
         desctructFunction(table->array[i]);
     }
     free(table->array);
+    table->array = nullptr;
     table->capacity = 0;
     table->size = 0;
 }
@@ -87,6 +88,15 @@ NameTable* newNameTable(size_t base_capacity)
     constructNameTable(new_table, base_capacity);
     
     return new_table;
+}
+
+NameTable* deleteNameTable(NameTable* table)
+{
+    destructNameTable(table);
+
+    free(table);
+
+    return nullptr;
 }
 
 int getFunctionID(NameTable* table, String* name)

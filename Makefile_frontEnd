@@ -1,6 +1,6 @@
 NAME = frontend
 MAIN_DIR = src
-OBJ_DIR = /home/locllos/Документы/Projects/TransliteLanguage/bin/frontend_bin
+OBJ_DIR = bin/frontend_bin
 COMPILE = gcc
 BIN_NAME = parser
 

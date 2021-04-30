@@ -1,15 +1,3 @@
-obbyaveety opredeleeDvaEeleeOdeenChlen(A, B, C)
-__/
-    yeslee (A == 0)
-    __/
-        poshcheetayOdnoChlen(B, C) tchk
-    |
-    eenachee
-    __/
-        poshcheetayDvaChlen(A, B, C) tchk
-    |
-|
-
 obbyaveety poshcheetayOdnoChlen(A, B)
 __/
     yeslee (A == 0)
@@ -33,6 +21,7 @@ __/
 obbyaveety poshcheetayDvaChlen(A, B, C)
 __/
     Diskreemenat preesvoytee B * B - 4 * A * C tchk
+    
     yeslee (Diskreemenat == 0)
     __/
         raspechatayty(1) tchk
@@ -61,5 +50,13 @@ __/
     A preesvoytee vvod() tchk
     B preesvoytee vvod() tchk
     C preesvoytee vvod() tchk
-    opredeleeDvaEeleeOdeenChlen(A, B, C) tchk
+
+    yeslee (A == 0)
+    __/
+        poshcheetayOdnoChlen(B, C) tchk
+    |
+    eenachee
+    __/
+        poshcheetayDvaChlen(A, B, C) tchk
+    |
 |

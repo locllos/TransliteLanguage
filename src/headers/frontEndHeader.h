@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
 #include <string.h>
 #include <stdarg.h>
 #include <assert.h>
@@ -14,6 +13,7 @@ void                skipUselessSymbols  (char* string, size_t* pos, size_t* line
 bool                isValidSymbol       (char symbol);
 bool                Require             (const String* string, const char* buffer, size_t* pos);
 char*               readFile            (const char* filename, size_t* buffer_size = nullptr);
+char*               readFile            (const char* filename, const char* flag, size_t* buffer_size = nullptr);
 int                 approxLength        (const char* filename);
 int                 getTokenType        (char* string, size_t* pos);
 inline TokenType    getTokenType        (TokenArray* tokens, size_t* pos);
@@ -29,11 +29,20 @@ void                showNode            (Node* node);
 void                printNode(Node* node);
 
 //String
-void        constructString     (String* string);
-void        reallocateString    (String* string);
-void        stringAppend        (String* string, char symbol);
-void        destructString      (String* string);
-String*     newStrisng          ();
+void        constructString         (String* string);
+void        constructString         (String* string, char* cstring, size_t length = 0);
+void        constructString         (String* string, const char* cstring, size_t length);
+void        constructStringVAList   (String* string, const char* formatted_cstring, va_list begin);
+void        reallocateString        (String* string);
+void        stringAppend            (String* string, char symbol);
+void        destructString          (String* string);
+String*     newString               ();
+String*     newString               (String* copy_string);
+String*     newString               (char* cstring, size_t length = 0);
+String*     newString               (const char* cstring, size_t length);
+String*     newFormattedString      (const char* formatted_cstring, ...);
+String*     newStringVAList         (const char* formatted_cstring, va_list begin);
+String*     deleteString            (String* string);
 
 //TokenArray
 void        constructTokenArray (TokenArray* tokens, size_t base_size);

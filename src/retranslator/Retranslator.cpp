@@ -1,171 +1,178 @@
-#include "headerFiles/frontEndHeader.h"
-#include "frontEndConstants.h"
+//legacy
 
-int approxLength(const char* filename)
-{
-	assert(filename);
+// #include "headerFiles/frontEndHeader.h"
+// #include "frontEndConstants.h"
+
+// int approxLength(const char* filename)
+// {
+// 	assert(filename);
 	
-	struct stat* buff = (struct stat*)calloc(1, sizeof(struct stat));
+// 	struct stat* buff = (struct stat*)calloc(1, sizeof(struct stat));
 
-	stat(filename, buff);
+// 	stat(filename, buff);
 
-	return buff->st_size;
-}
+// 	return buff->st_size;
+// }
 
-void skipUselessSymbols(char* string, size_t* pos)
-{   
-    size_t i = *pos;
-    while (isspace(string[i]))
-    {   
-        ++i;
-    }
-    *pos = i;
-}
+// void skipUselessSymbols(char* string, size_t* pos)
+// {   
+//     size_t i = *pos;
+//     while (isspace(string[i]))
+//     {   
+//         ++i;
+//     }
+//     *pos = i;
+// }
 
-char* readFile(const char* filename, size_t* buffer_size = nullptr)
-{
-    FILE* file = fopen(filename, "r");
+// char* readFile(const char* filename, const char* flag, size_t* buffer_size = nullptr)
+// {
+//     FILE* file = fopen(filename, flag);
 
-    assert(file);
+//     assert(file);
     
-    size_t apr_size = approxLength(filename);
+//     size_t apr_size = approxLength(filename);
 
-    char* buffer = (char*)calloc(apr_size, sizeof(char));
+//     char* buffer = (char*)calloc(apr_size, sizeof(char));
     
-    apr_size =  fread(buffer, sizeof(char), apr_size, file);
+//     apr_size =  fread(buffer, sizeof(char), apr_size, file);
 
-    if (buffer_size != nullptr) *buffer_size = apr_size;
+//     if (buffer_size != nullptr) *buffer_size = apr_size;
 
-    if (buffer != nullptr) buffer[apr_size] = '\0';
+//     if (buffer != nullptr) buffer[apr_size] = '\0';
 
-    return buffer;
-}
+//     return buffer;
+// }
 
-void initString(String* string, char* buffer, size_t length, size_t capacity)
-{
-    string->string = buffer;
-    string->length = length;
-    string->capacity = capacity;
-}
+// char* readFile(const char* filename, size_t* buffer_size = nullptr)
+// {
+//     readFile(filename, "r", buffer_size);
+// }
 
-void constructNode(Node* node, Type type)
-{
-    node->left = nullptr;
-    node->right = nullptr;
-    node->type = type;
-    node->value = {};
-}
+// void initString(String* string, char* buffer, size_t length, size_t capacity)
+// {
+//     string->string = buffer;
+//     string->length = length;
+//     string->capacity = capacity;
+// }
 
-Node* newNode(Type type)
-{
-    Node* new_node = (Node*)calloc(1, sizeof(Node));
+// void constructNode(Node* node, Type type)
+// {
+//     node->left = nullptr;
+//     node->right = nullptr;
+//     node->type = type;
+//     node->value = {};
+// }
 
-    constructNode(new_node, type);
+// Node* newNode(Type type)
+// {
+//     Node* new_node = (Node*)calloc(1, sizeof(Node));
 
-    return new_node;
-}
+//     constructNode(new_node, type);
 
-size_t valueLength(char* buffer)
-{   
-    char* offset = strchr(buffer, '|');
+//     return new_node;
+// }
 
-    assert(offset);
+// size_t valueLength(char* buffer)
+// {   
+//     char* offset = strchr(buffer, '|');
 
-    return offset - buffer;
-}
+//     assert(offset);
 
-void scanNumber(Node* node, char* buffer, size_t* pos)
-{
-    size_t offset = 0;
+//     return offset - buffer;
+// }
 
-    sscanf(buffer + *pos, "%lg%n", &node->value.number, &offset);
+// void scanNumber(Node* node, char* buffer, size_t* pos)
+// {
+//     size_t offset = 0;
+
+//     sscanf(buffer + *pos, "%lg%n", &node->value.number, &offset);
     
-    *pos += offset + 1;    
-}
+//     *pos += offset + 1;    
+// }
 
-void scanNaming(Node* node, char* buffer, size_t* pos)
-{
-    char* naming = strchr(buffer + *pos, '|');
-    size_t length = naming - buffer - 1;
+// void scanNaming(Node* node, char* buffer, size_t* pos)
+// {
+//     char* naming = strchr(buffer + *pos, '|');
+//     size_t length = naming - buffer - 1;
 
-    *pos += length + 1;
-    buffer[*pos - 1] = '\0';
+//     *pos += length + 1;
+//     buffer[*pos - 1] = '\0';
 
-    initString(&node->value.naming, naming, length, length);
-}
+//     initString(&node->value.naming, naming, length, length);
+// }
 
-void scanMath(Node* node, char* buffer, size_t* pos)
-{
-    size_t offset = 0;
-    size_t math_type = 0;
+// void scanMath(Node* node, char* buffer, size_t* pos)
+// {
+//     size_t offset = 0;
+//     size_t math_type = 0;
 
-    sscanf(buffer + *pos, "%zu%n", &math_type, &offset);
+//     sscanf(buffer + *pos, "%zu%n", &math_type, &offset);
 
-    node->value.number = MATH_TRANSLATOR[math_type];
+//     node->value.number = MATH_TRANSLATOR[math_type];
     
-    *pos += offset + 1; 
-}
+//     *pos += offset + 1; 
+// }
 
 
-Node* buildNodes(char* buffer, size_t* pos)
-{   
-    if (buffer[*pos] == '\0') return nullptr;
-    skipUselessSymbols(buffer, pos);
+// Node* buildNodes(char* buffer, size_t* pos)
+// {   
+//     if (buffer[*pos] == '\0') return nullptr;
+//     skipUselessSymbols(buffer, pos);
 
-    size_t size = 0;
-    size_t type = 0;
-    size_t offset = 0;
-    sscanf(buffer + *pos, "%zu%n", &type, &offset);
-    *pos += offset + 3;
+//     size_t size = 0;
+//     size_t type = 0;
+//     size_t offset = 0;
+//     sscanf(buffer + *pos, "%zu%n", &type, &offset);
+//     *pos += offset + 3;
 
-    Node* node = newNode((Type)TYPE_TRANSALATOR[type]);
-    switch (node->type)
-    {
-        case NAMING_TYPE:
-            scanNaming(node, buffer, pos);
-            break;
+//     Node* node = newNode((Type)TYPE_TRANSALATOR[type]);
+//     switch (node->type)
+//     {
+//         case NAMING_TYPE:
+//             scanNaming(node, buffer, pos);
+//             break;
 
-        case NUMBER_TYPE:
-            scanNumber(node, buffer, pos);
-            break;
+//         case NUMBER_TYPE:
+//             scanNumber(node, buffer, pos);
+//             break;
 
-        case MATH_TYPE:
-            scanMath(node, buffer, pos);
-            break;
+//         case MATH_TYPE:
+//             scanMath(node, buffer, pos);
+//             break;
 
-        default:
-            node->value.number = 0;
-            *pos += 2;
-            break;
-    }
+//         default:
+//             node->value.number = 0;
+//             *pos += 2;
+//             break;
+//     }
 
-    skipUselessSymbols(buffer, pos);
-    if (buffer[*pos] == '{')
-    {
-        *pos += 1;
-        node->left = buildNodes(buffer, pos);
-    }
-    skipUselessSymbols(buffer, pos);
-    if (buffer[*pos] == '}')
-    {
-        *pos += 1;
-        node->left = buildNodes(buffer, pos);
-    }
-}
+//     skipUselessSymbols(buffer, pos);
+//     if (buffer[*pos] == '{')
+//     {
+//         *pos += 1;
+//         node->left = buildNodes(buffer, pos);
+//     }
+//     skipUselessSymbols(buffer, pos);
+//     if (buffer[*pos] == '}')
+//     {
+//         *pos += 1;
+//         node->left = buildNodes(buffer, pos);
+//     }
+// }
 
-void buildTree(const char* filename)
-{
-    FILE* file = fopen(filename, "r");
+// void buildTree(const char* filename)
+// {
+//     FILE* file = fopen(filename, "r");
 
-    char* buffer = readFile(filename);
+//     char* buffer = readFile(filename);
 
-    size_t pos = 0;
-    Node* root = buildNodes(buffer, &pos);
+//     size_t pos = 0;
+//     Node* root = buildNodes(buffer, &pos);
 
-}
+// }
 
 
-int main()
-{
-    return 0;
-}
+// int main()
+// {
+//     return 0;
+// }
