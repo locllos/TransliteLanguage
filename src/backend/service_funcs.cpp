@@ -102,10 +102,10 @@ void logNode(Node* node)
  */
 void asmFileWrite(Parser* parser, const char* format, ...)
 {   
+    if (parser->asm_file == nullptr) return;
+
     va_list begin;
     va_start(begin, format);
-
-    if (parser->asm_file == nullptr) return;
 
     for (size_t i = 0; i < parser->tab_offset; ++i)
     {
@@ -211,10 +211,6 @@ char getREX(OperandType operand_a, OperandType operand_b)
     return getREX(operand_a, operand_b, 0x48);
 }
 
-void setLabel(Parser* parser, const char* name)
-{
-
-}
 
 void writeMovRegConst(Parser* parser, char* instruction, 
                       OperandType operand_a, OperandType operand_b, 
@@ -230,22 +226,25 @@ void writeMovRegConst(Parser* parser, char* instruction,
     insertBackArray(parser->text, (char*)&constant, sizeof(int64_t));
 }
 
-void writeMovMemRegOnly(Parser* parser, char* instruction,
-                        MovType mov_type,
-                        OperandType operand_a, OperandType operand_b, 
-                        MemoryAccessType mem_access)
+void writeMovRegMemRegOnly(Parser* parser, char* instruction,
+                           MovType mov_type,
+                           OperandType operand_a, OperandType operand_b, 
+                           MemoryAccessType mem_access)
 {
     if (atLeastOneOperandRSPorR12(mov_type, operand_a, operand_b))
     {   
-        instruction[3] = 0x24;
+        instruction[3] = RSP_MAGIC_NUMBER;
     };       
-
-    if (mov_type == MOV_MEM_REG) swapOperands(&operand_a, &operand_b);
-
-    instruction[0] = getREX(operand_a, operand_b);
-    instruction[2] = getMODRM(operand_a, operand_b, mem_access);
-
-    if (mov_type == MOV_MEM_REG) swapOperands(&operand_a, &operand_b);
+    if (mov_type == MOV_MEM_REG)
+    {
+        instruction[0] = getREX(operand_b, operand_a);
+        instruction[2] = getMODRM(operand_b, operand_a, mem_access);
+    }
+    else
+    {
+        instruction[0] = getREX(operand_a, operand_b);
+        instruction[2] = getMODRM(operand_a, operand_b, mem_access);
+    }
 
     insertBackArray(parser->text, instruction, 3);
 
@@ -255,13 +254,13 @@ void writeMovMemRegOnly(Parser* parser, char* instruction,
     }
 }
 
-void writeMovMemRegOffset(Parser* parser, char* instruction, 
+void writeMovRegMemRegOffset(Parser* parser, char* instruction, 
                           MovType mov_type,
                           OperandType operand_a, OperandType operand_b, 
                           MemoryAccessType mem_access,
                           int8_t offset)
 {       
-    if (mov_type == MOV_MEM_REG) //swapOperands(&operand_a, &operand_b);
+    if (mov_type == MOV_MEM_REG)
     {
         instruction[0] = getREX(operand_b, operand_a);
         instruction[2] = getMODRM(operand_b, operand_a, mem_access);
@@ -271,7 +270,6 @@ void writeMovMemRegOffset(Parser* parser, char* instruction,
         instruction[0] = getREX(operand_a, operand_b);
         instruction[2] = getMODRM(operand_a, operand_b, mem_access);
     }    
-    // if (mov_type == MOV_MEM_REG) swapOperands(&operand_a, &operand_b);
 
     if (atLeastOneOperandRSPorR12(mov_type, operand_a, operand_b)) 
     {
@@ -295,12 +293,12 @@ void writeMovMemReg(Parser* parser, char* instruction,
     {   
         asmFileWrite(parser, "mov [%s], %s", 
                      REGISTERS[operand_a], REGISTERS[operand_b]);
-        writeMovMemRegOnly(parser, instruction, MOV_MEM_REG, operand_a, operand_b, mem_access);
+        writeMovRegMemRegOnly(parser, instruction, MOV_MEM_REG, operand_a, operand_b, mem_access);
         return;
     }
 
     asmFileWrite(parser, "mov [%s + (%d)], %s", REGISTERS[operand_a], offset, REGISTERS[operand_b]);
-    writeMovMemRegOffset(parser, instruction, MOV_MEM_REG, operand_a, operand_b, mem_access, offset);
+    writeMovRegMemRegOffset(parser, instruction, MOV_MEM_REG, operand_a, operand_b, mem_access, offset);
 }
 
 void writeMovRegRegMem(Parser* parser, char* instruction, 
@@ -323,11 +321,11 @@ void writeMovRegRegMem(Parser* parser, char* instruction,
     {
         asmFileWrite(parser, "mov %s, [%s]", 
                      REGISTERS[operand_a], REGISTERS[operand_b]);
-        writeMovMemRegOnly(parser, instruction, MOV_REG_MEM, operand_a, operand_b, mem_access);
+        writeMovRegMemRegOnly(parser, instruction, MOV_REG_MEM, operand_a, operand_b, mem_access);
         return;
     }
     asmFileWrite(parser, "mov %s, [%s + (%d)]", REGISTERS[operand_a], REGISTERS[operand_b], offset);
-    writeMovMemRegOffset(parser, instruction, MOV_REG_MEM, operand_a, operand_b, mem_access, offset);
+    writeMovRegMemRegOffset(parser, instruction, MOV_REG_MEM, operand_a, operand_b, mem_access, offset);
 }
 
 void writePush(Parser* parser, OperandType operand)
@@ -382,19 +380,6 @@ void writeIMul(Parser* parser,
     instruction[3] = getMODRM(operand_a, operand_b, NONE);
 
     insertBackArray(parser->text, instruction, 4);
-}
-
-void writeJump(Parser* parser, CommandType cmd_type, Label* label)
-{   
-    char instruction[4] = {};
-    
-    asmFileWrite(parser, "%s %s", COMMANDS[cmd_type], label->name->string);
-
-    insertBackArray(parser->text, (char*)&OPCODES[cmd_type], 
-                    cmd_type >= JNE && cmd_type <= JG ? 2 : 1);
-    
-    insertBackArray(parser->text, instruction, 4);
-    pushBackOffset(label, parser->text->size - 1);
 }
 
 void writeReturn(Parser* parser)
@@ -483,7 +468,15 @@ void asmFileWrite(Parser* parser,
 
 void asmFileWrite(Parser* parser, CommandType cmd_type, Label* label)
 {
-    writeJump(parser, cmd_type, label);
+    char instruction[4] = {};
+    
+    asmFileWrite(parser, "%s %s", COMMANDS[cmd_type], label->name->string);
+
+    insertBackArray(parser->text, (char*)&OPCODES[cmd_type], 
+                    cmd_type >= JNE && cmd_type <= JG ? 2 : 1);
+    
+    insertBackArray(parser->text, instruction, 4);
+    pushBackOffset(label, parser->text->size - 1);
 }
 
 bool isPrintFunction(String* name)

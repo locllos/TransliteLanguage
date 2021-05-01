@@ -153,7 +153,7 @@ void compileMain(Node* node, const char* filename, const char* elf_filename)
 
     fillOffsets(&parser);
 
-    makeELF64(&parser, filename, elf_filename, "main");
+    makeELF64(&parser, filename, elf_filename, START_FUNC_NAME);
     
     destructParser(&parser);
 

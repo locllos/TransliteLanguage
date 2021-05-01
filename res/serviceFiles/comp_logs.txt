@@ -1,13 +1,32 @@
----> find func: fact
-=====>Find new Argument variable: n
+---> find func: poshcheetayOdnoChlen
+=====>Find new Argument variable: A
+=====>Find new Argument variable: B
+---> find func: poshcheetayDvaChlen
+=====>Find new Argument variable: A
+=====>Find new Argument variable: B
+=====>Find new Argument variable: C
+===>Find new Local variable: Diskreemenat
+===>Find new Local variable: koreyn_ot_Diskreemenatah
 ---> find func: zaglaveeye
-===>Find new Local variable: a
+===>Find new Local variable: A
+===>Find new Local variable: B
+===>Find new Local variable: C
 ===
-NameTable[2]: 
-	Function: fact
-		Argument: n
+NameTable[3]: 
+	Function: poshcheetayOdnoChlen
+		Argument: A
+		Argument: B
 
+	Function: poshcheetayDvaChlen
+		Argument: A
+		Argument: B
+		Argument: C
+
+		Local Variable: Diskreemenat
+		Local Variable: koreyn_ot_Diskreemenatah
 	Function: zaglaveeye
 		(zero amount arguments)
 
-		Local Variable: a
+		Local Variable: A
+		Local Variable: B
+		Local Variable: C

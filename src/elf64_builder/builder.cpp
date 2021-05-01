@@ -79,7 +79,7 @@ void initSymtabHeader(Parser* parser, ELF* elf)
     elf->sh_symtab->sh_offset += isDefault(elf) ? sizeof(DEFAULT_SHSTRTAB) : sizeof(EXTENDED_SHSTRTAB); 
     elf->sh_symtab->sh_size = 0x00; // WILL BE FILLED in initSymtabSection 
     elf->sh_symtab->sh_link = 0x04; // link to strtab
-    // idx to next not local name in symtab entry
+    // idx to next not localname in symtab entry
     elf->sh_symtab->sh_info = 0x00; // WILL BE FILLED in initSymtabSection 
     elf->sh_symtab->sh_addralign = 0x08;
     elf->sh_symtab->sh_entsize = ENTRY_SIZE;

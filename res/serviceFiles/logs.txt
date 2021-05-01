@@ -1,32 +1,70 @@
 ---ParamList---
 [
-(NAMING: [n])
+(NAMING: [A])
 left: nullptr
-right: nullptr
+right: (NAMING: [B])
 ]
 ---Function Declaration---
 [
-(NAMING: [fact])
+(NAMING: [poshcheetayOdnoChlen])
 left: nullptr
-right: (NAMING: [n])
+right: (NAMING: [A])
 ]
 \__Begin block
 \__Begin statemente
 ---NAMING---
 ---Bottom---[
-(NAMING: [n])
+(NAMING: [A])
 left: nullptr
 right: nullptr
 ]
 ---Term---
 [
-(NAMING: [n])
+(NAMING: [A])
 left: nullptr
 right: nullptr
 ]
 ---Simple---
 [
-(NAMING: [n])
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+\__Begin block
+\__Begin statemente
+---NAMING---
+---Bottom---[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NAMING: [B])
 left: nullptr
 right: nullptr
 ]
@@ -68,11 +106,102 @@ right: nullptr
 left: nullptr
 right: nullptr
 ]
+---ArgumentList---
+[
+(KEY: [arg])
+left: (NUMBER: [6.95336e-310])
+right: nullptr
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
 ---Ret or  Assign or Expr---
 [
-(KEY: [ret])
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+\__End statemente
+\__Begin statemente
+---Term---
+[
+(nullptr)
+]
+---Simple---
+[
+(nullptr)
+]
+---Block---
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+\__End block
+\__Begin block
+\__Begin statemente
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
 left: nullptr
-right: (NUMBER: [0])
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---ArgumentList---
+[
+(KEY: [arg])
+left: (NUMBER: [6.95336e-310])
+right: nullptr
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
 ]
 \__End statemente
 \__Begin statemente
@@ -94,42 +223,29 @@ right: nullptr
 ---Condition---
 [
 (KEY: [if])
-left: (MATH: [<])
+left: (MATH: [==])
 
 right: (KEY: [if/else])
 ]
 \__End statemente
 \__Begin statemente
----NAMING---
----Bottom---[
-(NAMING: [n])
-left: nullptr
-right: nullptr
-]
 ---Term---
 [
-(NAMING: [n])
-left: nullptr
-right: nullptr
-]
----NAMING---
----Bottom---[
-(NAMING: [n])
-left: nullptr
-right: nullptr
-]
----Term---
-[
-(NAMING: [n])
-left: nullptr
-right: nullptr
+(nullptr)
 ]
 ---Simple---
 [
-(NAMING: [n])
-left: nullptr
+(nullptr)
+]
+---Block---
+[
+(KEY: [comp])
+left: (KEY: [stat])
 right: nullptr
 ]
+\__End block
+\__Begin block
+\__Begin statemente
 ---NUMBER---
 ---Bottom---[
 (NUMBER: [6.95336e-310])
@@ -144,44 +260,143 @@ right: nullptr
 ]
 ---Simple---
 [
-(MATH: [-])
-
-left: (NAMING: [n])
-right: (NUMBER: [6.95335e-310])
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
 ]
 ---ArgumentList---
 [
 (KEY: [arg])
-left: (MATH: [-])
+left: (NUMBER: [6.95336e-310])
+right: nullptr
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+\__End statemente
+\__Begin statemente
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---NAMING---
+---Bottom---[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95335e-310])
+right: (NAMING: [B])
+]
+---NAMING---
+---Bottom---[
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(MATH: [/])
+
+left: (MATH: [*])
+
+right: (NAMING: [A])
+]
+---Simple---
+[
+(MATH: [/])
+
+left: (MATH: [*])
+
+right: (NAMING: [A])
+]
+---ArgumentList---
+[
+(KEY: [arg])
+left: (MATH: [/])
 
 right: nullptr
 ]
 ---CALL---
 ---Bottom---[
 (KEY: [call])
-left: (NAMING: [fact])
+left: (NAMING: [raspechatayty])
 right: (KEY: [arg])
 ]
 ---Term---
 [
-(MATH: [*])
-
-left: (NAMING: [n])
-right: (KEY: [call])
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
 ]
 ---Simple---
 [
-(MATH: [*])
-
-left: (NAMING: [n])
-right: (KEY: [call])
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
 ]
 ---Ret or  Assign or Expr---
 [
-(KEY: [ret])
-left: nullptr
-right: (MATH: [*])
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+\__End statemente
+\__Begin statemente
+---Term---
+[
+(nullptr)
+]
+---Simple---
+[
+(nullptr)
+]
+---Block---
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+\__End block
+---Condition---
+[
+(KEY: [if])
+left: (MATH: [==])
 
+right: (KEY: [if/else])
 ]
 \__End statemente
 \__Begin statemente
@@ -202,9 +417,993 @@ right: nullptr
 \__End block
 ---Definition---
 [
-(NAMING: [fact])
+(NAMING: [poshcheetayOdnoChlen])
 left: (KEY: [comp])
-right: (NAMING: [n])
+right: (NAMING: [A])
+]
+---ParamList---
+[
+(NAMING: [A])
+left: nullptr
+right: (NAMING: [B])
+]
+---Function Declaration---
+[
+(NAMING: [poshcheetayDvaChlen])
+left: nullptr
+right: (NAMING: [A])
+]
+\__Begin block
+\__Begin statemente
+---NAMING---
+---Bottom---[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+---NAMING---
+---Bottom---[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(MATH: [*])
+
+left: (NAMING: [B])
+right: (NAMING: [B])
+]
+---Simple---
+[
+(MATH: [*])
+
+left: (NAMING: [B])
+right: (NAMING: [B])
+]
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---NAMING---
+---Bottom---[
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95335e-310])
+right: (NAMING: [A])
+]
+---NAMING---
+---Bottom---[
+(NAMING: [C])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(MATH: [*])
+
+left: (MATH: [*])
+
+right: (NAMING: [C])
+]
+---Simple---
+[
+(MATH: [-])
+
+left: (MATH: [*])
+
+right: (MATH: [*])
+
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [assign])
+left: (NAMING: [Diskreemenat])
+right: (MATH: [-])
+
+]
+\__End statemente
+\__Begin statemente
+---NAMING---
+---Bottom---[
+(NAMING: [Diskreemenat])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [Diskreemenat])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NAMING: [Diskreemenat])
+left: nullptr
+right: nullptr
+]
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+\__Begin block
+\__Begin statemente
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---ArgumentList---
+[
+(KEY: [arg])
+left: (NUMBER: [6.95336e-310])
+right: nullptr
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+\__End statemente
+\__Begin statemente
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---NAMING---
+---Bottom---[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95335e-310])
+right: (NAMING: [B])
+]
+---Simple---
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95335e-310])
+right: (NAMING: [B])
+]
+---PrimExpr
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95336e-310])
+right: (NAMING: [B])
+]
+---Term---
+[
+(MATH: [*])
+
+left: (NUMBER: [0])
+right: (NAMING: [B])
+]
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---NAMING---
+---Bottom---[
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95335e-310])
+right: (NAMING: [A])
+]
+---Simple---
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95335e-310])
+right: (NAMING: [A])
+]
+---PrimExpr
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95336e-310])
+right: (NAMING: [A])
+]
+---Term---
+[
+(MATH: [/])
+
+left: (MATH: [*])
+
+right: (MATH: [*])
+
+]
+---Simple---
+[
+(MATH: [/])
+
+left: (MATH: [*])
+
+right: (MATH: [*])
+
+]
+---ArgumentList---
+[
+(KEY: [arg])
+left: (MATH: [/])
+
+right: nullptr
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+\__End statemente
+\__Begin statemente
+---Term---
+[
+(nullptr)
+]
+---Simple---
+[
+(nullptr)
+]
+---Block---
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+\__End block
+\__Begin block
+\__Begin statemente
+---NAMING---
+---Bottom---[
+(NAMING: [Diskreemenat])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [Diskreemenat])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NAMING: [Diskreemenat])
+left: nullptr
+right: nullptr
+]
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+\__Begin block
+\__Begin statemente
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---ArgumentList---
+[
+(KEY: [arg])
+left: (NUMBER: [6.95336e-310])
+right: nullptr
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+\__End statemente
+\__Begin statemente
+---NAMING---
+---Bottom---[
+(NAMING: [Diskreemenat])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [Diskreemenat])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NAMING: [Diskreemenat])
+left: nullptr
+right: nullptr
+]
+---ArgumentList---
+[
+(KEY: [arg])
+left: (NAMING: [Diskreemenat])
+right: nullptr
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [koreyn])
+right: (KEY: [arg])
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [koreyn])
+right: (KEY: [arg])
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [koreyn])
+right: (KEY: [arg])
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [assign])
+left: (NAMING: [koreyn_ot_Diskreemenatah])
+right: (KEY: [call])
+]
+\__End statemente
+\__Begin statemente
+---NAMING---
+---Bottom---[
+(NAMING: [koreyn_ot_Diskreemenatah])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [koreyn_ot_Diskreemenatah])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NAMING: [koreyn_ot_Diskreemenatah])
+left: nullptr
+right: nullptr
+]
+---ArgumentList---
+[
+(KEY: [arg])
+left: (NAMING: [koreyn_ot_Diskreemenatah])
+right: nullptr
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+\__End statemente
+\__Begin statemente
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---NAMING---
+---Bottom---[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95335e-310])
+right: (NAMING: [B])
+]
+---Simple---
+[
+(MATH: [*])
+
+left: (NUMBER: [3.95253e-323])
+right: (NAMING: [B])
+]
+---NAMING---
+---Bottom---[
+(NAMING: [koreyn_ot_Diskreemenatah])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [koreyn_ot_Diskreemenatah])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(MATH: [-])
+
+left: (MATH: [*])
+
+right: (NAMING: [koreyn_ot_Diskreemenatah])
+]
+---PrimExpr
+[
+(MATH: [-])
+
+left: (MATH: [*])
+
+right: (NAMING: [koreyn_ot_Diskreemenatah])
+]
+---Term---
+[
+(MATH: [-])
+
+left: (MATH: [*])
+
+right: (NAMING: [koreyn_ot_Diskreemenatah])
+]
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---NAMING---
+---Bottom---[
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95335e-310])
+right: (NAMING: [A])
+]
+---Simple---
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95335e-310])
+right: (NAMING: [A])
+]
+---PrimExpr
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95336e-310])
+right: (NAMING: [A])
+]
+---Term---
+[
+(MATH: [/])
+
+left: (MATH: [-])
+
+right: (MATH: [*])
+
+]
+---Simple---
+[
+(MATH: [/])
+
+left: (MATH: [-])
+
+right: (MATH: [*])
+
+]
+---ArgumentList---
+[
+(KEY: [arg])
+left: (MATH: [/])
+
+right: nullptr
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+\__End statemente
+\__Begin statemente
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---NAMING---
+---Bottom---[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95335e-310])
+right: (NAMING: [B])
+]
+---Simple---
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95335e-310])
+right: (NAMING: [B])
+]
+---NAMING---
+---Bottom---[
+(NAMING: [koreyn_ot_Diskreemenatah])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [koreyn_ot_Diskreemenatah])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(MATH: [+])
+
+left: (MATH: [*])
+
+right: (NAMING: [koreyn_ot_Diskreemenatah])
+]
+---PrimExpr
+[
+(MATH: [+])
+
+left: (MATH: [*])
+
+right: (NAMING: [koreyn_ot_Diskreemenatah])
+]
+---Term---
+[
+(MATH: [+])
+
+left: (MATH: [*])
+
+right: (NAMING: [koreyn_ot_Diskreemenatah])
+]
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---NAMING---
+---Bottom---[
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95335e-310])
+right: (NAMING: [A])
+]
+---Simple---
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95335e-310])
+right: (NAMING: [A])
+]
+---PrimExpr
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95336e-310])
+right: (NAMING: [A])
+]
+---Term---
+[
+(MATH: [/])
+
+left: (MATH: [+])
+
+right: (MATH: [*])
+
+]
+---Simple---
+[
+(MATH: [/])
+
+left: (MATH: [+])
+
+right: (MATH: [*])
+
+]
+---ArgumentList---
+[
+(KEY: [arg])
+left: (MATH: [/])
+
+right: nullptr
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+\__End statemente
+\__Begin statemente
+---Term---
+[
+(nullptr)
+]
+---Simple---
+[
+(nullptr)
+]
+---Block---
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+\__End block
+\__Begin block
+\__Begin statemente
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---ArgumentList---
+[
+(KEY: [arg])
+left: (NUMBER: [6.95336e-310])
+right: nullptr
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+\__End statemente
+\__Begin statemente
+---Term---
+[
+(nullptr)
+]
+---Simple---
+[
+(nullptr)
+]
+---Block---
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+\__End block
+---Condition---
+[
+(KEY: [if])
+left: (MATH: [>])
+
+right: (KEY: [if/else])
+]
+\__End statemente
+\__Begin statemente
+---Term---
+[
+(nullptr)
+]
+---Simple---
+[
+(nullptr)
+]
+---Block---
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+\__End block
+---Condition---
+[
+(KEY: [if])
+left: (MATH: [==])
+
+right: (KEY: [if/else])
+]
+\__End statemente
+\__Begin statemente
+---Term---
+[
+(nullptr)
+]
+---Simple---
+[
+(nullptr)
+]
+---Block---
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+\__End block
+---Definition---
+[
+(NAMING: [poshcheetayDvaChlen])
+left: (KEY: [comp])
+right: (NAMING: [A])
 ]
 ---ParamList---
 [
@@ -251,82 +1450,317 @@ right: nullptr
 ---Ret or  Assign or Expr---
 [
 (KEY: [assign])
-left: (NAMING: [a])
+left: (NAMING: [A])
+right: (KEY: [call])
+]
+\__End statemente
+\__Begin statemente
+---Term---
+[
+(nullptr)
+]
+---Simple---
+[
+(nullptr)
+]
+---ArgumentList---
+[
+(nullptr)
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [vvod])
+right: nullptr
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [vvod])
+right: nullptr
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [vvod])
+right: nullptr
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [assign])
+left: (NAMING: [B])
+right: (KEY: [call])
+]
+\__End statemente
+\__Begin statemente
+---Term---
+[
+(nullptr)
+]
+---Simple---
+[
+(nullptr)
+]
+---ArgumentList---
+[
+(nullptr)
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [vvod])
+right: nullptr
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [vvod])
+right: nullptr
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [vvod])
+right: nullptr
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [assign])
+left: (NAMING: [C])
 right: (KEY: [call])
 ]
 \__End statemente
 \__Begin statemente
 ---NAMING---
 ---Bottom---[
-(NAMING: [a])
+(NAMING: [A])
 left: nullptr
 right: nullptr
 ]
 ---Term---
 [
-(NAMING: [a])
+(NAMING: [A])
 left: nullptr
 right: nullptr
 ]
 ---Simple---
 [
-(NAMING: [a])
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+---NUMBER---
+---Bottom---[
+(NUMBER: [6.95336e-310])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NUMBER: [6.95335e-310])
+left: nullptr
+right: nullptr
+]
+\__Begin block
+\__Begin statemente
+---NAMING---
+---Bottom---[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+---NAMING---
+---Bottom---[
+(NAMING: [C])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [C])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NAMING: [C])
 left: nullptr
 right: nullptr
 ]
 ---ArgumentList---
 [
 (KEY: [arg])
-left: (NAMING: [a])
-right: nullptr
+left: (NAMING: [C])
+right: (KEY: [arg])
 ]
 ---CALL---
 ---Bottom---[
 (KEY: [call])
-left: (NAMING: [fact])
+left: (NAMING: [poshcheetayOdnoChlen])
 right: (KEY: [arg])
 ]
 ---Term---
 [
 (KEY: [call])
-left: (NAMING: [fact])
+left: (NAMING: [poshcheetayOdnoChlen])
 right: (KEY: [arg])
 ]
 ---Simple---
 [
 (KEY: [call])
-left: (NAMING: [fact])
-right: (KEY: [arg])
-]
----ArgumentList---
-[
-(KEY: [arg])
-left: (KEY: [call])
-right: nullptr
-]
----CALL---
----Bottom---[
-(KEY: [call])
-left: (NAMING: [raspechatayty])
-right: (KEY: [arg])
-]
----Term---
-[
-(KEY: [call])
-left: (NAMING: [raspechatayty])
-right: (KEY: [arg])
-]
----Simple---
-[
-(KEY: [call])
-left: (NAMING: [raspechatayty])
+left: (NAMING: [poshcheetayOdnoChlen])
 right: (KEY: [arg])
 ]
 ---Ret or  Assign or Expr---
 [
 (KEY: [call])
-left: (NAMING: [raspechatayty])
+left: (NAMING: [poshcheetayOdnoChlen])
 right: (KEY: [arg])
+]
+\__End statemente
+\__Begin statemente
+---Term---
+[
+(nullptr)
+]
+---Simple---
+[
+(nullptr)
+]
+---Block---
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+\__End block
+\__Begin block
+\__Begin statemente
+---NAMING---
+---Bottom---[
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+---NAMING---
+---Bottom---[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+---NAMING---
+---Bottom---[
+(NAMING: [C])
+left: nullptr
+right: nullptr
+]
+---Term---
+[
+(NAMING: [C])
+left: nullptr
+right: nullptr
+]
+---Simple---
+[
+(NAMING: [C])
+left: nullptr
+right: nullptr
+]
+---ArgumentList---
+[
+(KEY: [arg])
+left: (NAMING: [C])
+right: (KEY: [arg])
+]
+---CALL---
+---Bottom---[
+(KEY: [call])
+left: (NAMING: [poshcheetayDvaChlen])
+right: (KEY: [arg])
+]
+---Term---
+[
+(KEY: [call])
+left: (NAMING: [poshcheetayDvaChlen])
+right: (KEY: [arg])
+]
+---Simple---
+[
+(KEY: [call])
+left: (NAMING: [poshcheetayDvaChlen])
+right: (KEY: [arg])
+]
+---Ret or  Assign or Expr---
+[
+(KEY: [call])
+left: (NAMING: [poshcheetayDvaChlen])
+right: (KEY: [arg])
+]
+\__End statemente
+\__Begin statemente
+---Term---
+[
+(nullptr)
+]
+---Simple---
+[
+(nullptr)
+]
+---Block---
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+\__End block
+---Condition---
+[
+(KEY: [if])
+left: (MATH: [==])
+
+right: (KEY: [if/else])
 ]
 \__End statemente
 \__Begin statemente
@@ -353,7 +1787,7 @@ right: nullptr
 ]
 drawing graph...
 [
-(NAMING: [a])
+(NAMING: [A])
 left: nullptr
 right: nullptr
 ]
@@ -369,48 +1803,180 @@ right: nullptr
 ]
 [
 (KEY: [assign])
-left: (NAMING: [a])
+left: (NAMING: [A])
 right: (KEY: [call])
 ]
 [
-(NAMING: [raspechatayty])
+(NAMING: [B])
 left: nullptr
 right: nullptr
 ]
 [
-(NAMING: [fact])
+(NAMING: [vvod])
 left: nullptr
 right: nullptr
 ]
 [
-(NAMING: [a])
+(KEY: [call])
+left: (NAMING: [vvod])
+right: nullptr
+]
+[
+(KEY: [assign])
+left: (NAMING: [B])
+right: (KEY: [call])
+]
+[
+(NAMING: [C])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [vvod])
+left: nullptr
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [vvod])
+right: nullptr
+]
+[
+(KEY: [assign])
+left: (NAMING: [C])
+right: (KEY: [call])
+]
+[
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [==])
+
+left: (NAMING: [A])
+right: (NUMBER: [6.95336e-310])
+]
+[
+(NAMING: [poshcheetayOdnoChlen])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [C])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [B])
 left: nullptr
 right: nullptr
 ]
 [
 (KEY: [arg])
-left: (NAMING: [a])
+left: (NAMING: [B])
 right: nullptr
 ]
 [
-(KEY: [call])
-left: (NAMING: [fact])
+(KEY: [arg])
+left: (NAMING: [C])
 right: (KEY: [arg])
 ]
 [
-(KEY: [arg])
-left: (KEY: [call])
-right: nullptr
-]
-[
 (KEY: [call])
-left: (NAMING: [raspechatayty])
+left: (NAMING: [poshcheetayOdnoChlen])
 right: (KEY: [arg])
 ]
 [
 (KEY: [stat])
 left: (KEY: [call])
 right: nullptr
+]
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+[
+(NAMING: [poshcheetayDvaChlen])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [C])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+[
+(KEY: [arg])
+left: (NAMING: [A])
+right: nullptr
+]
+[
+(KEY: [arg])
+left: (NAMING: [B])
+right: (KEY: [arg])
+]
+[
+(KEY: [arg])
+left: (NAMING: [C])
+right: (KEY: [arg])
+]
+[
+(KEY: [call])
+left: (NAMING: [poshcheetayDvaChlen])
+right: (KEY: [arg])
+]
+[
+(KEY: [stat])
+left: (KEY: [call])
+right: nullptr
+]
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+[
+(KEY: [if/else])
+left: (KEY: [comp])
+right: (KEY: [comp])
+]
+[
+(KEY: [if])
+left: (MATH: [==])
+
+right: (KEY: [if/else])
+]
+[
+(KEY: [stat])
+left: (KEY: [if])
+right: nullptr
+]
+[
+(KEY: [stat])
+left: (KEY: [assign])
+right: (KEY: [stat])
+]
+[
+(KEY: [stat])
+left: (KEY: [assign])
+right: (KEY: [stat])
 ]
 [
 (KEY: [stat])
@@ -433,20 +1999,25 @@ left: nullptr
 right: (NAMING: [zaglaveeye])
 ]
 [
-(NAMING: [n])
+(NAMING: [Diskreemenat])
 left: nullptr
 right: nullptr
 ]
 [
-(NUMBER: [0])
+(NAMING: [B])
 left: nullptr
 right: nullptr
 ]
 [
-(MATH: [<])
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [*])
 
-left: (NAMING: [n])
-right: (NUMBER: [6.95336e-310])
+left: (NAMING: [B])
+right: (NAMING: [B])
 ]
 [
 (NUMBER: [0])
@@ -454,13 +2025,424 @@ left: nullptr
 right: nullptr
 ]
 [
-(KEY: [ret])
+(NAMING: [A])
 left: nullptr
+right: nullptr
+]
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95336e-310])
+right: (NAMING: [A])
+]
+[
+(NAMING: [C])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [*])
+
+left: (MATH: [*])
+
+right: (NAMING: [C])
+]
+[
+(MATH: [-])
+
+left: (MATH: [*])
+
+right: (MATH: [*])
+
+]
+[
+(KEY: [assign])
+left: (NAMING: [Diskreemenat])
+right: (MATH: [-])
+
+]
+[
+(NAMING: [Diskreemenat])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [==])
+
+left: (NAMING: [Diskreemenat])
 right: (NUMBER: [6.95336e-310])
+]
+[
+(NAMING: [raspechatayty])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(KEY: [arg])
+left: (NUMBER: [6.95336e-310])
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+[
+(NAMING: [raspechatayty])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95336e-310])
+right: (NAMING: [B])
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95336e-310])
+right: (NAMING: [A])
+]
+[
+(MATH: [/])
+
+left: (MATH: [*])
+
+right: (MATH: [*])
+
+]
+[
+(KEY: [arg])
+left: (MATH: [/])
+
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
 ]
 [
 (KEY: [stat])
-left: (KEY: [ret])
+left: (KEY: [call])
+right: nullptr
+]
+[
+(KEY: [stat])
+left: (KEY: [call])
+right: (KEY: [stat])
+]
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+[
+(NAMING: [Diskreemenat])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [>])
+
+left: (NAMING: [Diskreemenat])
+right: (NUMBER: [6.95336e-310])
+]
+[
+(NAMING: [raspechatayty])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(KEY: [arg])
+left: (NUMBER: [6.95336e-310])
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+[
+(NAMING: [koreyn_ot_Diskreemenatah])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [koreyn])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [Diskreemenat])
+left: nullptr
+right: nullptr
+]
+[
+(KEY: [arg])
+left: (NAMING: [Diskreemenat])
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [koreyn])
+right: (KEY: [arg])
+]
+[
+(KEY: [assign])
+left: (NAMING: [koreyn_ot_Diskreemenatah])
+right: (KEY: [call])
+]
+[
+(NAMING: [raspechatayty])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [koreyn_ot_Diskreemenatah])
+left: nullptr
+right: nullptr
+]
+[
+(KEY: [arg])
+left: (NAMING: [koreyn_ot_Diskreemenatah])
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+[
+(NAMING: [raspechatayty])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95336e-310])
+right: (NAMING: [B])
+]
+[
+(NAMING: [koreyn_ot_Diskreemenatah])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [-])
+
+left: (MATH: [*])
+
+right: (NAMING: [koreyn_ot_Diskreemenatah])
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95336e-310])
+right: (NAMING: [A])
+]
+[
+(MATH: [/])
+
+left: (MATH: [-])
+
+right: (MATH: [*])
+
+]
+[
+(KEY: [arg])
+left: (MATH: [/])
+
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+[
+(NAMING: [raspechatayty])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95336e-310])
+right: (NAMING: [B])
+]
+[
+(NAMING: [koreyn_ot_Diskreemenatah])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [+])
+
+left: (MATH: [*])
+
+right: (NAMING: [koreyn_ot_Diskreemenatah])
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95336e-310])
+right: (NAMING: [A])
+]
+[
+(MATH: [/])
+
+left: (MATH: [+])
+
+right: (MATH: [*])
+
+]
+[
+(KEY: [arg])
+left: (MATH: [/])
+
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+[
+(KEY: [stat])
+left: (KEY: [call])
+right: nullptr
+]
+[
+(KEY: [stat])
+left: (KEY: [call])
+right: (KEY: [stat])
+]
+[
+(KEY: [stat])
+left: (KEY: [call])
+right: (KEY: [stat])
+]
+[
+(KEY: [stat])
+left: (KEY: [assign])
+right: (KEY: [stat])
+]
+[
+(KEY: [stat])
+left: (KEY: [call])
+right: (KEY: [stat])
+]
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+[
+(NAMING: [raspechatayty])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(KEY: [arg])
+left: (NUMBER: [6.95336e-310])
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+[
+(KEY: [stat])
+left: (KEY: [call])
 right: nullptr
 ]
 [
@@ -471,26 +2453,77 @@ right: nullptr
 [
 (KEY: [if/else])
 left: (KEY: [comp])
-right: nullptr
+right: (KEY: [comp])
 ]
 [
 (KEY: [if])
-left: (MATH: [<])
+left: (MATH: [>])
 
 right: (KEY: [if/else])
 ]
 [
-(NAMING: [n])
+(KEY: [stat])
+left: (KEY: [if])
+right: nullptr
+]
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+[
+(KEY: [if/else])
+left: (KEY: [comp])
+right: (KEY: [comp])
+]
+[
+(KEY: [if])
+left: (MATH: [==])
+
+right: (KEY: [if/else])
+]
+[
+(KEY: [stat])
+left: (KEY: [if])
+right: nullptr
+]
+[
+(KEY: [stat])
+left: (KEY: [assign])
+right: (KEY: [stat])
+]
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+[
+(NAMING: [C])
 left: nullptr
 right: nullptr
 ]
 [
-(NAMING: [fact])
+(NAMING: [B])
 left: nullptr
-right: nullptr
+right: (NAMING: [C])
 ]
 [
-(NAMING: [n])
+(NAMING: [A])
+left: nullptr
+right: (NAMING: [B])
+]
+[
+(NAMING: [poshcheetayDvaChlen])
+left: (KEY: [comp])
+right: (NAMING: [A])
+]
+[
+(KEY: [def])
+left: (KEY: [def])
+right: (NAMING: [poshcheetayDvaChlen])
+]
+[
+(NAMING: [A])
 left: nullptr
 right: nullptr
 ]
@@ -500,42 +2533,180 @@ left: nullptr
 right: nullptr
 ]
 [
-(MATH: [-])
+(MATH: [==])
 
-left: (NAMING: [n])
+left: (NAMING: [A])
 right: (NUMBER: [6.95336e-310])
 ]
 [
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [==])
+
+left: (NAMING: [B])
+right: (NUMBER: [6.95336e-310])
+]
+[
+(NAMING: [raspechatayty])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
 (KEY: [arg])
-left: (MATH: [-])
+left: (NUMBER: [6.95336e-310])
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+[
+(KEY: [stat])
+left: (KEY: [call])
+right: nullptr
+]
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+[
+(NAMING: [raspechatayty])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(KEY: [arg])
+left: (NUMBER: [6.95336e-310])
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+[
+(KEY: [stat])
+left: (KEY: [call])
+right: nullptr
+]
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+[
+(KEY: [if/else])
+left: (KEY: [comp])
+right: (KEY: [comp])
+]
+[
+(KEY: [if])
+left: (MATH: [==])
+
+right: (KEY: [if/else])
+]
+[
+(KEY: [stat])
+left: (KEY: [if])
+right: nullptr
+]
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+[
+(NAMING: [raspechatayty])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(KEY: [arg])
+left: (NUMBER: [6.95336e-310])
+right: nullptr
+]
+[
+(KEY: [call])
+left: (NAMING: [raspechatayty])
+right: (KEY: [arg])
+]
+[
+(NAMING: [raspechatayty])
+left: nullptr
+right: nullptr
+]
+[
+(NUMBER: [0])
+left: nullptr
+right: nullptr
+]
+[
+(NAMING: [B])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [*])
+
+left: (NUMBER: [6.95336e-310])
+right: (NAMING: [B])
+]
+[
+(NAMING: [A])
+left: nullptr
+right: nullptr
+]
+[
+(MATH: [/])
+
+left: (MATH: [*])
+
+right: (NAMING: [A])
+]
+[
+(KEY: [arg])
+left: (MATH: [/])
 
 right: nullptr
 ]
 [
 (KEY: [call])
-left: (NAMING: [fact])
+left: (NAMING: [raspechatayty])
 right: (KEY: [arg])
 ]
 [
-(MATH: [*])
-
-left: (NAMING: [n])
-right: (KEY: [call])
-]
-[
-(KEY: [ret])
-left: nullptr
-right: (MATH: [*])
-
-]
-[
 (KEY: [stat])
-left: (KEY: [ret])
+left: (KEY: [call])
 right: nullptr
 ]
 [
 (KEY: [stat])
-left: (KEY: [if])
+left: (KEY: [call])
 right: (KEY: [stat])
 ]
 [
@@ -544,17 +2715,43 @@ left: (KEY: [stat])
 right: nullptr
 ]
 [
-(NAMING: [n])
+(KEY: [if/else])
+left: (KEY: [comp])
+right: (KEY: [comp])
+]
+[
+(KEY: [if])
+left: (MATH: [==])
+
+right: (KEY: [if/else])
+]
+[
+(KEY: [stat])
+left: (KEY: [if])
+right: nullptr
+]
+[
+(KEY: [comp])
+left: (KEY: [stat])
+right: nullptr
+]
+[
+(NAMING: [B])
 left: nullptr
 right: nullptr
 ]
 [
-(NAMING: [fact])
+(NAMING: [A])
+left: nullptr
+right: (NAMING: [B])
+]
+[
+(NAMING: [poshcheetayOdnoChlen])
 left: (KEY: [comp])
-right: (NAMING: [n])
+right: (NAMING: [A])
 ]
 [
 (KEY: [def])
 left: (KEY: [def])
-right: (NAMING: [fact])
+right: (NAMING: [poshcheetayOdnoChlen])
 ]

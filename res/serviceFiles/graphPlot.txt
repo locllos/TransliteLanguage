@@ -1,82 +1,372 @@
 digraph G{
 node [shape="record", style="solid", color="blue"];
-"0x555555578180":sw->"0x555555578580"
-"0x555555578580":se->"0x5555555781c0"
-"0x5555555781c0":sw->"0x555555578540"
-"0x555555578540":sw->"0x555555578300"
-"0x555555578300":sw->"0x5555555782c0"
-"0x5555555782c0":sw->"0x555555578200"
-"0x555555578200" [style="filled", fillcolor="seagreen1", label="{a}"]
- "0x5555555782c0":se->"0x555555578280"
-"0x555555578280":sw->"0x555555578240"
-"0x555555578240" [style="filled", fillcolor="seagreen1", label="{vvod}"]
- "0x555555578280" [style="filled", fillcolor="skyblue1", label="{call}"]
- "0x5555555782c0" [style="filled", fillcolor="skyblue1", label="{assign}"]
- "0x555555578300":se->"0x555555578500"
-"0x555555578500":sw->"0x5555555784c0"
-"0x5555555784c0":sw->"0x555555578340"
-"0x555555578340" [style="filled", fillcolor="seagreen1", label="{raspechatayty}"]
- "0x5555555784c0":se->"0x555555578480"
-"0x555555578480":sw->"0x555555578440"
-"0x555555578440":sw->"0x555555578380"
-"0x555555578380" [style="filled", fillcolor="seagreen1", label="{fact}"]
- "0x555555578440":se->"0x555555578400"
-"0x555555578400":sw->"0x5555555783c0"
-"0x5555555783c0" [style="filled", fillcolor="seagreen1", label="{a}"]
- "0x555555578400" [style="filled", fillcolor="skyblue1", label="{arg}"]
- "0x555555578440" [style="filled", fillcolor="skyblue1", label="{call}"]
- "0x555555578480" [style="filled", fillcolor="skyblue1", label="{arg}"]
- "0x5555555784c0" [style="filled", fillcolor="skyblue1", label="{call}"]
- "0x555555578500" [style="filled", fillcolor="skyblue1", label="{stat}"]
- "0x555555578300" [style="filled", fillcolor="skyblue1", label="{stat}"]
- "0x555555578540" [style="filled", fillcolor="skyblue1", label="{comp}"]
- "0x5555555781c0" [style="filled", fillcolor="seagreen1", label="{zaglaveeye}"]
- "0x555555578580" [style="filled", fillcolor="skyblue1", label="{def}"]
- "0x555555578180":se->"0x555555576bb0"
-"0x555555576bb0":sw->"0x555555578140"
-"0x555555578140":sw->"0x555555577e80"
-"0x555555577e80":sw->"0x555555577e40"
-"0x555555577e40":sw->"0x555555577cc0"
-"0x555555577cc0":sw->"0x555555577c40"
-"0x555555577c40" [style="filled", fillcolor="seagreen1", label="{n}"]
- "0x555555577cc0":se->"0x555555577c80"
-"0x555555577c80" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
- "0x555555577cc0" [style="filled", fillcolor="blue", label="{\<}"]
- "0x555555577e40":se->"0x555555577e00"
-"0x555555577e00":sw->"0x555555577dc0"
-"0x555555577dc0":sw->"0x555555577d80"
-"0x555555577d80":sw->"0x555555577d40"
-"0x555555577d40":se->"0x555555577d00"
-"0x555555577d00" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
- "0x555555577d40" [style="filled", fillcolor="skyblue1", label="{ret}"]
- "0x555555577d80" [style="filled", fillcolor="skyblue1", label="{stat}"]
- "0x555555577dc0" [style="filled", fillcolor="skyblue1", label="{comp}"]
- "0x555555577e00" [style="filled", fillcolor="skyblue1", label="{if/else}"]
- "0x555555577e40" [style="filled", fillcolor="skyblue1", label="{if}"]
- "0x555555577e80":se->"0x555555578100"
-"0x555555578100":sw->"0x5555555780c0"
-"0x5555555780c0":se->"0x555555578080"
-"0x555555578080":sw->"0x555555577ec0"
-"0x555555577ec0" [style="filled", fillcolor="seagreen1", label="{n}"]
- "0x555555578080":se->"0x555555578040"
-"0x555555578040":sw->"0x555555577f00"
-"0x555555577f00" [style="filled", fillcolor="seagreen1", label="{fact}"]
- "0x555555578040":se->"0x555555578000"
-"0x555555578000":sw->"0x555555577fc0"
-"0x555555577fc0":sw->"0x555555577f40"
-"0x555555577f40" [style="filled", fillcolor="seagreen1", label="{n}"]
- "0x555555577fc0":se->"0x555555577f80"
-"0x555555577f80" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
- "0x555555577fc0" [style="filled", fillcolor="blue", label="{\-}"]
- "0x555555578000" [style="filled", fillcolor="skyblue1", label="{arg}"]
- "0x555555578040" [style="filled", fillcolor="skyblue1", label="{call}"]
- "0x555555578080" [style="filled", fillcolor="blue", label="{\*}"]
- "0x5555555780c0" [style="filled", fillcolor="skyblue1", label="{ret}"]
- "0x555555578100" [style="filled", fillcolor="skyblue1", label="{stat}"]
- "0x555555577e80" [style="filled", fillcolor="skyblue1", label="{stat}"]
- "0x555555578140" [style="filled", fillcolor="skyblue1", label="{comp}"]
- "0x555555576bb0":se->"0x555555576bf0"
-"0x555555576bf0" [style="filled", fillcolor="seagreen1", label="{n}"]
- "0x555555576bb0" [style="filled", fillcolor="seagreen1", label="{fact}"]
- "0x555555578180" [style="filled", fillcolor="skyblue1", label="{def}"]
+"0x555555579100":sw->"0x55555557a980"
+"0x55555557a980":sw->"0x55555557b400"
+"0x55555557b400":se->"0x55555557a9c0"
+"0x55555557a9c0":sw->"0x55555557b3c0"
+"0x55555557b3c0":sw->"0x55555557ab00"
+"0x55555557ab00":sw->"0x55555557aac0"
+"0x55555557aac0":sw->"0x55555557aa00"
+"0x55555557aa00" [style="filled", fillcolor="seagreen1", label="{A}"]
+ "0x55555557aac0":se->"0x55555557aa80"
+"0x55555557aa80":sw->"0x55555557aa40"
+"0x55555557aa40" [style="filled", fillcolor="seagreen1", label="{vvod}"]
+ "0x55555557aa80" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x55555557aac0" [style="filled", fillcolor="skyblue1", label="{assign}"]
+ "0x55555557ab00":se->"0x55555557ac40"
+"0x55555557ac40":sw->"0x55555557ac00"
+"0x55555557ac00":sw->"0x55555557ab40"
+"0x55555557ab40" [style="filled", fillcolor="seagreen1", label="{B}"]
+ "0x55555557ac00":se->"0x55555557abc0"
+"0x55555557abc0":sw->"0x55555557ab80"
+"0x55555557ab80" [style="filled", fillcolor="seagreen1", label="{vvod}"]
+ "0x55555557abc0" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x55555557ac00" [style="filled", fillcolor="skyblue1", label="{assign}"]
+ "0x55555557ac40":se->"0x55555557ad80"
+"0x55555557ad80":sw->"0x55555557ad40"
+"0x55555557ad40":sw->"0x55555557ac80"
+"0x55555557ac80" [style="filled", fillcolor="seagreen1", label="{C}"]
+ "0x55555557ad40":se->"0x55555557ad00"
+"0x55555557ad00":sw->"0x55555557acc0"
+"0x55555557acc0" [style="filled", fillcolor="seagreen1", label="{vvod}"]
+ "0x55555557ad00" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x55555557ad40" [style="filled", fillcolor="skyblue1", label="{assign}"]
+ "0x55555557ad80":se->"0x55555557b380"
+"0x55555557b380":sw->"0x55555557b340"
+"0x55555557b340":sw->"0x55555557ae40"
+"0x55555557ae40":sw->"0x55555557adc0"
+"0x55555557adc0" [style="filled", fillcolor="seagreen1", label="{A}"]
+ "0x55555557ae40":se->"0x55555557ae00"
+"0x55555557ae00" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x55555557ae40" [style="filled", fillcolor="blue", label="{\==}"]
+ "0x55555557b340":se->"0x55555557b300"
+"0x55555557b300":sw->"0x55555557b040"
+"0x55555557b040":sw->"0x55555557b000"
+"0x55555557b000":sw->"0x55555557afc0"
+"0x55555557afc0":sw->"0x55555557ae80"
+"0x55555557ae80" [style="filled", fillcolor="seagreen1", label="{poshcheetayOdnoChlen}"]
+ "0x55555557afc0":se->"0x55555557af80"
+"0x55555557af80":sw->"0x55555557af40"
+"0x55555557af40" [style="filled", fillcolor="seagreen1", label="{C}"]
+ "0x55555557af80":se->"0x55555557af00"
+"0x55555557af00":sw->"0x55555557aec0"
+"0x55555557aec0" [style="filled", fillcolor="seagreen1", label="{B}"]
+ "0x55555557af00" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x55555557af80" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x55555557afc0" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x55555557b000" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x55555557b040" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x55555557b300":se->"0x55555557b2c0"
+"0x55555557b2c0":sw->"0x55555557b280"
+"0x55555557b280":sw->"0x55555557b240"
+"0x55555557b240":sw->"0x55555557b080"
+"0x55555557b080" [style="filled", fillcolor="seagreen1", label="{poshcheetayDvaChlen}"]
+ "0x55555557b240":se->"0x55555557b200"
+"0x55555557b200":sw->"0x55555557b1c0"
+"0x55555557b1c0" [style="filled", fillcolor="seagreen1", label="{C}"]
+ "0x55555557b200":se->"0x55555557b180"
+"0x55555557b180":sw->"0x55555557b140"
+"0x55555557b140" [style="filled", fillcolor="seagreen1", label="{B}"]
+ "0x55555557b180":se->"0x55555557b100"
+"0x55555557b100":sw->"0x55555557b0c0"
+"0x55555557b0c0" [style="filled", fillcolor="seagreen1", label="{A}"]
+ "0x55555557b100" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x55555557b180" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x55555557b200" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x55555557b240" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x55555557b280" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x55555557b2c0" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x55555557b300" [style="filled", fillcolor="skyblue1", label="{if/else}"]
+ "0x55555557b340" [style="filled", fillcolor="skyblue1", label="{if}"]
+ "0x55555557b380" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x55555557ad80" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x55555557ac40" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x55555557ab00" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x55555557b3c0" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x55555557a9c0" [style="filled", fillcolor="seagreen1", label="{zaglaveeye}"]
+ "0x55555557b400" [style="filled", fillcolor="skyblue1", label="{def}"]
+ "0x55555557a980":se->"0x555555579140"
+"0x555555579140":sw->"0x55555557a940"
+"0x55555557a940":sw->"0x555555579500"
+"0x555555579500":sw->"0x5555555794c0"
+"0x5555555794c0":sw->"0x555555579240"
+"0x555555579240" [style="filled", fillcolor="seagreen1", label="{Diskreemenat}"]
+ "0x5555555794c0":se->"0x555555579480"
+"0x555555579480":sw->"0x555555579300"
+"0x555555579300":sw->"0x555555579280"
+"0x555555579280" [style="filled", fillcolor="seagreen1", label="{B}"]
+ "0x555555579300":se->"0x5555555792c0"
+"0x5555555792c0" [style="filled", fillcolor="seagreen1", label="{B}"]
+ "0x555555579300" [style="filled", fillcolor="blue", label="{\*}"]
+ "0x555555579480":se->"0x555555579440"
+"0x555555579440":sw->"0x5555555793c0"
+"0x5555555793c0":sw->"0x555555579340"
+"0x555555579340" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x5555555793c0":se->"0x555555579380"
+"0x555555579380" [style="filled", fillcolor="seagreen1", label="{A}"]
+ "0x5555555793c0" [style="filled", fillcolor="blue", label="{\*}"]
+ "0x555555579440":se->"0x555555579400"
+"0x555555579400" [style="filled", fillcolor="seagreen1", label="{C}"]
+ "0x555555579440" [style="filled", fillcolor="blue", label="{\*}"]
+ "0x555555579480" [style="filled", fillcolor="blue", label="{\-}"]
+ "0x5555555794c0" [style="filled", fillcolor="skyblue1", label="{assign}"]
+ "0x555555579500":se->"0x55555557a900"
+"0x55555557a900":sw->"0x55555557a8c0"
+"0x55555557a8c0":sw->"0x5555555795c0"
+"0x5555555795c0":sw->"0x555555579540"
+"0x555555579540" [style="filled", fillcolor="seagreen1", label="{Diskreemenat}"]
+ "0x5555555795c0":se->"0x555555579580"
+"0x555555579580" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x5555555795c0" [style="filled", fillcolor="blue", label="{\==}"]
+ "0x55555557a8c0":se->"0x55555557a880"
+"0x55555557a880":sw->"0x555555579a00"
+"0x555555579a00":sw->"0x555555579700"
+"0x555555579700":sw->"0x5555555796c0"
+"0x5555555796c0":sw->"0x555555579600"
+"0x555555579600" [style="filled", fillcolor="seagreen1", label="{raspechatayty}"]
+ "0x5555555796c0":se->"0x555555579680"
+"0x555555579680":sw->"0x555555579640"
+"0x555555579640" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x555555579680" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x5555555796c0" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x555555579700":se->"0x5555555799c0"
+"0x5555555799c0":sw->"0x555555579980"
+"0x555555579980":sw->"0x555555579740"
+"0x555555579740" [style="filled", fillcolor="seagreen1", label="{raspechatayty}"]
+ "0x555555579980":se->"0x555555579940"
+"0x555555579940":sw->"0x555555579900"
+"0x555555579900":sw->"0x555555579800"
+"0x555555579800":sw->"0x555555579780"
+"0x555555579780" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x555555579800":se->"0x5555555797c0"
+"0x5555555797c0" [style="filled", fillcolor="seagreen1", label="{B}"]
+ "0x555555579800" [style="filled", fillcolor="blue", label="{\*}"]
+ "0x555555579900":se->"0x5555555798c0"
+"0x5555555798c0":sw->"0x555555579840"
+"0x555555579840" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x5555555798c0":se->"0x555555579880"
+"0x555555579880" [style="filled", fillcolor="seagreen1", label="{A}"]
+ "0x5555555798c0" [style="filled", fillcolor="blue", label="{\*}"]
+ "0x555555579900" [style="filled", fillcolor="blue", label="{\/}"]
+ "0x555555579940" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x555555579980" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x5555555799c0" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x555555579700" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x555555579a00" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x55555557a880":se->"0x55555557a840"
+"0x55555557a840":sw->"0x55555557a800"
+"0x55555557a800":sw->"0x55555557a7c0"
+"0x55555557a7c0":sw->"0x555555579ac0"
+"0x555555579ac0":sw->"0x555555579a40"
+"0x555555579a40" [style="filled", fillcolor="seagreen1", label="{Diskreemenat}"]
+ "0x555555579ac0":se->"0x555555579a80"
+"0x555555579a80" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x555555579ac0" [style="filled", fillcolor="blue", label="{\>}"]
+ "0x55555557a7c0":se->"0x55555557a780"
+"0x55555557a780":sw->"0x55555557a5c0"
+"0x55555557a5c0":sw->"0x555555579c00"
+"0x555555579c00":sw->"0x555555579bc0"
+"0x555555579bc0":sw->"0x555555579b00"
+"0x555555579b00" [style="filled", fillcolor="seagreen1", label="{raspechatayty}"]
+ "0x555555579bc0":se->"0x555555579b80"
+"0x555555579b80":sw->"0x555555579b40"
+"0x555555579b40" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x555555579b80" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x555555579bc0" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x555555579c00":se->"0x555555579dc0"
+"0x555555579dc0":sw->"0x555555579d80"
+"0x555555579d80":sw->"0x555555579c40"
+"0x555555579c40" [style="filled", fillcolor="seagreen1", label="{koreyn_ot_Diskreemenatah}"]
+ "0x555555579d80":se->"0x555555579d40"
+"0x555555579d40":sw->"0x555555579c80"
+"0x555555579c80" [style="filled", fillcolor="seagreen1", label="{koreyn}"]
+ "0x555555579d40":se->"0x555555579d00"
+"0x555555579d00":sw->"0x555555579cc0"
+"0x555555579cc0" [style="filled", fillcolor="seagreen1", label="{Diskreemenat}"]
+ "0x555555579d00" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x555555579d40" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x555555579d80" [style="filled", fillcolor="skyblue1", label="{assign}"]
+ "0x555555579dc0":se->"0x555555579f00"
+"0x555555579f00":sw->"0x555555579ec0"
+"0x555555579ec0":sw->"0x555555579e00"
+"0x555555579e00" [style="filled", fillcolor="seagreen1", label="{raspechatayty}"]
+ "0x555555579ec0":se->"0x555555579e80"
+"0x555555579e80":sw->"0x555555579e40"
+"0x555555579e40" [style="filled", fillcolor="seagreen1", label="{koreyn_ot_Diskreemenatah}"]
+ "0x555555579e80" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x555555579ec0" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x555555579f00":se->"0x55555557a240"
+"0x55555557a240":sw->"0x55555557a200"
+"0x55555557a200":sw->"0x555555579f40"
+"0x555555579f40" [style="filled", fillcolor="seagreen1", label="{raspechatayty}"]
+ "0x55555557a200":se->"0x55555557a1c0"
+"0x55555557a1c0":sw->"0x55555557a180"
+"0x55555557a180":sw->"0x55555557a080"
+"0x55555557a080":sw->"0x55555557a000"
+"0x55555557a000":sw->"0x555555579f80"
+"0x555555579f80" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x55555557a000":se->"0x555555579fc0"
+"0x555555579fc0" [style="filled", fillcolor="seagreen1", label="{B}"]
+ "0x55555557a000" [style="filled", fillcolor="blue", label="{\*}"]
+ "0x55555557a080":se->"0x55555557a040"
+"0x55555557a040" [style="filled", fillcolor="seagreen1", label="{koreyn_ot_Diskreemenatah}"]
+ "0x55555557a080" [style="filled", fillcolor="blue", label="{\-}"]
+ "0x55555557a180":se->"0x55555557a140"
+"0x55555557a140":sw->"0x55555557a0c0"
+"0x55555557a0c0" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x55555557a140":se->"0x55555557a100"
+"0x55555557a100" [style="filled", fillcolor="seagreen1", label="{A}"]
+ "0x55555557a140" [style="filled", fillcolor="blue", label="{\*}"]
+ "0x55555557a180" [style="filled", fillcolor="blue", label="{\/}"]
+ "0x55555557a1c0" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x55555557a200" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x55555557a240":se->"0x55555557a580"
+"0x55555557a580":sw->"0x55555557a540"
+"0x55555557a540":sw->"0x55555557a280"
+"0x55555557a280" [style="filled", fillcolor="seagreen1", label="{raspechatayty}"]
+ "0x55555557a540":se->"0x55555557a500"
+"0x55555557a500":sw->"0x55555557a4c0"
+"0x55555557a4c0":sw->"0x55555557a3c0"
+"0x55555557a3c0":sw->"0x55555557a340"
+"0x55555557a340":sw->"0x55555557a2c0"
+"0x55555557a2c0" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x55555557a340":se->"0x55555557a300"
+"0x55555557a300" [style="filled", fillcolor="seagreen1", label="{B}"]
+ "0x55555557a340" [style="filled", fillcolor="blue", label="{\*}"]
+ "0x55555557a3c0":se->"0x55555557a380"
+"0x55555557a380" [style="filled", fillcolor="seagreen1", label="{koreyn_ot_Diskreemenatah}"]
+ "0x55555557a3c0" [style="filled", fillcolor="blue", label="{\+}"]
+ "0x55555557a4c0":se->"0x55555557a480"
+"0x55555557a480":sw->"0x55555557a400"
+"0x55555557a400" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x55555557a480":se->"0x55555557a440"
+"0x55555557a440" [style="filled", fillcolor="seagreen1", label="{A}"]
+ "0x55555557a480" [style="filled", fillcolor="blue", label="{\*}"]
+ "0x55555557a4c0" [style="filled", fillcolor="blue", label="{\/}"]
+ "0x55555557a500" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x55555557a540" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x55555557a580" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x55555557a240" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x555555579f00" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x555555579dc0" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x555555579c00" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x55555557a5c0" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x55555557a780":se->"0x55555557a740"
+"0x55555557a740":sw->"0x55555557a700"
+"0x55555557a700":sw->"0x55555557a6c0"
+"0x55555557a6c0":sw->"0x55555557a600"
+"0x55555557a600" [style="filled", fillcolor="seagreen1", label="{raspechatayty}"]
+ "0x55555557a6c0":se->"0x55555557a680"
+"0x55555557a680":sw->"0x55555557a640"
+"0x55555557a640" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x55555557a680" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x55555557a6c0" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x55555557a700" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x55555557a740" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x55555557a780" [style="filled", fillcolor="skyblue1", label="{if/else}"]
+ "0x55555557a7c0" [style="filled", fillcolor="skyblue1", label="{if}"]
+ "0x55555557a800" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x55555557a840" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x55555557a880" [style="filled", fillcolor="skyblue1", label="{if/else}"]
+ "0x55555557a8c0" [style="filled", fillcolor="skyblue1", label="{if}"]
+ "0x55555557a900" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x555555579500" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x55555557a940" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x555555579140":se->"0x555555579180"
+"0x555555579180":se->"0x5555555791c0"
+"0x5555555791c0":se->"0x555555579200"
+"0x555555579200" [style="filled", fillcolor="seagreen1", label="{C}"]
+ "0x5555555791c0" [style="filled", fillcolor="seagreen1", label="{B}"]
+ "0x555555579180" [style="filled", fillcolor="seagreen1", label="{A}"]
+ "0x555555579140" [style="filled", fillcolor="seagreen1", label="{poshcheetayDvaChlen}"]
+ "0x55555557a980" [style="filled", fillcolor="skyblue1", label="{def}"]
+ "0x555555579100":se->"0x5555555775f0"
+"0x5555555775f0":sw->"0x5555555790c0"
+"0x5555555790c0":sw->"0x555555579080"
+"0x555555579080":sw->"0x555555579040"
+"0x555555579040":sw->"0x555555578740"
+"0x555555578740":sw->"0x5555555786c0"
+"0x5555555786c0" [style="filled", fillcolor="seagreen1", label="{A}"]
+ "0x555555578740":se->"0x555555578700"
+"0x555555578700" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x555555578740" [style="filled", fillcolor="blue", label="{\==}"]
+ "0x555555579040":se->"0x555555579000"
+"0x555555579000":sw->"0x555555578c00"
+"0x555555578c00":sw->"0x555555578bc0"
+"0x555555578bc0":sw->"0x555555578b80"
+"0x555555578b80":sw->"0x555555578800"
+"0x555555578800":sw->"0x555555578780"
+"0x555555578780" [style="filled", fillcolor="seagreen1", label="{B}"]
+ "0x555555578800":se->"0x5555555787c0"
+"0x5555555787c0" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x555555578800" [style="filled", fillcolor="blue", label="{\==}"]
+ "0x555555578b80":se->"0x555555578b40"
+"0x555555578b40":sw->"0x555555578980"
+"0x555555578980":sw->"0x555555578940"
+"0x555555578940":sw->"0x555555578900"
+"0x555555578900":sw->"0x555555578840"
+"0x555555578840" [style="filled", fillcolor="seagreen1", label="{raspechatayty}"]
+ "0x555555578900":se->"0x5555555788c0"
+"0x5555555788c0":sw->"0x555555578880"
+"0x555555578880" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x5555555788c0" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x555555578900" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x555555578940" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x555555578980" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x555555578b40":se->"0x555555578b00"
+"0x555555578b00":sw->"0x555555578ac0"
+"0x555555578ac0":sw->"0x555555578a80"
+"0x555555578a80":sw->"0x5555555789c0"
+"0x5555555789c0" [style="filled", fillcolor="seagreen1", label="{raspechatayty}"]
+ "0x555555578a80":se->"0x555555578a40"
+"0x555555578a40":sw->"0x555555578a00"
+"0x555555578a00" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x555555578a40" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x555555578a80" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x555555578ac0" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x555555578b00" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x555555578b40" [style="filled", fillcolor="skyblue1", label="{if/else}"]
+ "0x555555578b80" [style="filled", fillcolor="skyblue1", label="{if}"]
+ "0x555555578bc0" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x555555578c00" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x555555579000":se->"0x555555578fc0"
+"0x555555578fc0":sw->"0x555555578d40"
+"0x555555578d40":sw->"0x555555578d00"
+"0x555555578d00":sw->"0x555555578c40"
+"0x555555578c40" [style="filled", fillcolor="seagreen1", label="{raspechatayty}"]
+ "0x555555578d00":se->"0x555555578cc0"
+"0x555555578cc0":sw->"0x555555578c80"
+"0x555555578c80" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x555555578cc0" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x555555578d00" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x555555578d40":se->"0x555555578f80"
+"0x555555578f80":sw->"0x555555578f40"
+"0x555555578f40":sw->"0x555555578d80"
+"0x555555578d80" [style="filled", fillcolor="seagreen1", label="{raspechatayty}"]
+ "0x555555578f40":se->"0x555555578f00"
+"0x555555578f00":sw->"0x555555578ec0"
+"0x555555578ec0":sw->"0x555555578e40"
+"0x555555578e40":sw->"0x555555578dc0"
+"0x555555578dc0" [style="filled", fillcolor="lightpink", label="{6.95336e-310}"]
+ "0x555555578e40":se->"0x555555578e00"
+"0x555555578e00" [style="filled", fillcolor="seagreen1", label="{B}"]
+ "0x555555578e40" [style="filled", fillcolor="blue", label="{\*}"]
+ "0x555555578ec0":se->"0x555555578e80"
+"0x555555578e80" [style="filled", fillcolor="seagreen1", label="{A}"]
+ "0x555555578ec0" [style="filled", fillcolor="blue", label="{\/}"]
+ "0x555555578f00" [style="filled", fillcolor="skyblue1", label="{arg}"]
+ "0x555555578f40" [style="filled", fillcolor="skyblue1", label="{call}"]
+ "0x555555578f80" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x555555578d40" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x555555578fc0" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x555555579000" [style="filled", fillcolor="skyblue1", label="{if/else}"]
+ "0x555555579040" [style="filled", fillcolor="skyblue1", label="{if}"]
+ "0x555555579080" [style="filled", fillcolor="skyblue1", label="{stat}"]
+ "0x5555555790c0" [style="filled", fillcolor="skyblue1", label="{comp}"]
+ "0x5555555775f0":se->"0x555555577630"
+"0x555555577630":se->"0x555555577670"
+"0x555555577670" [style="filled", fillcolor="seagreen1", label="{B}"]
+ "0x555555577630" [style="filled", fillcolor="seagreen1", label="{A}"]
+ "0x5555555775f0" [style="filled", fillcolor="seagreen1", label="{poshcheetayOdnoChlen}"]
+ "0x555555579100" [style="filled", fillcolor="skyblue1", label="{def}"]
  }

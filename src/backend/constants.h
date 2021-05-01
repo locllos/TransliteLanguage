@@ -3,14 +3,16 @@
 static const size_t BASE_VAR_ARRAY_SIZE = 8;
 static const size_t BASE_FUNC_ARRAY_SIZE = 3;
 static const char MAIN[] = "zaglaveeye";
+static const char START_FUNC_NAME[] = "main";
 static const char PRINT[] = "raspechatayty";
 static const char INPUT[] = "vvod";
 static const char SQRT[] = "koreyn";
-static const size_t NOT_INIT = 0xffffffff;
+static const size_t NOT_INIT = 0xffffffff; // equivalent to -1
 static const size_t MAX_LABEL_NAME_SIZE = 64;
 static const size_t START_OFFSET_ARRAY_CAPACITY = 4;
 static const size_t DEFAULT_START_CAPACITY = 16;
 static const size_t gap_size = 8;
+static const size_t RSP_MAGIC_NUMBER = 0x24;
 
 static const String TOKEN[]
 {    
