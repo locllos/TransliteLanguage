@@ -620,3 +620,4 @@ N, M, K, P, Q - натуральные числа.
 * https://ru.wikipedia.org/wiki/Executable_and_Linkable_Format - на удивление достаточно хорошее содержание.
 * http://www.regatta.cs.msu.su/doc/usr/share/man/info/ru_RU/a_doc_lib/aixprggd/genprogc/genprogc02.htm#ToC - представляет собой перевод документации System V Application Binary Interface
 * http://www.sco.com/developers/gabi/2003-12-17/contents.html - документация System V Application Binary Interface
+* https://refspecs.linuxbase.org/elf/x86_64-abi-0.98.pdf - документация-документация для System V Application Binary Interface
