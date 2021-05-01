@@ -19,7 +19,6 @@
   - [5. Symtab entry](#5-symtab-entry)
     - [Разбор каждого поля symtab entry](#разбор-каждого-поля-symtab-entry)
     - [Разбор имен в таблице символов](#разбор-имен-в-таблице-символов)
-        - [.strtab](#strtab)
   - [6. Relatext entry](#6-relatext-entry)
     - [Разбор каждого поля relatext entry](#разбор-каждого-поля-relatext-entry)
     - [Пример записи реалокации](#пример-записи-реалокации)
