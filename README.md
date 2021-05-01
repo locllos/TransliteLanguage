@@ -590,6 +590,8 @@ N, M, K, P, Q - натуральные числа.
 
 ![image](res/img/print_relaentry.png)
 
+Рассмотрим самую первую запись:
+
 * r_offset: 0x00 - 0x07 байты:
 
         r_offset = 0x0B. 
